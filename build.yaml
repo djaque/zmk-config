@@ -19,7 +19,5 @@
 #
 ---
 include:
-  - board: seeeduino_xiao_ble
-    shield: corne_left
-  - board: seeeduino_xiao_ble
-    shield: corne_right
+  - board: eyelash_corne_left
+  - board: eyelash_corne_right
