@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eyelash Corne — Mapa de Capas</title>
+<style>
+:root {
+  --bg: #0a0f1e;
+  --surface: #111827;
+  --surface2: #1e293b;
+  --border: #334155;
+  --alpha-bg: #1e293b; --alpha-bd: #475569; --alpha-tx: #f1f5f9;
+  --mod-bg: #0c2340;   --mod-bd: #2563eb;   --mod-tx: #93c5fd;
+  --layer-bg: #1e0d4e; --layer-bd: #7c3aed; --layer-tx: #c4b5fd;
+  --nav-bg: #022c22;   --nav-bd: #10b981;   --nav-tx: #6ee7b7;
+  --sym-bg: #2d1500;   --sym-bd: #d97706;   --sym-tx: #fde68a;
+  --num-bg: #051b2e;   --num-bd: #0284c7;   --num-tx: #7dd3fc;
+  --sys-bg: #2a0a1a;   --sys-bd: #db2777;   --sys-tx: #fbcfe8;
+  --mouse-bg: #021a0c; --mouse-bd: #16a34a; --mouse-tx: #86efac;
+  --fn-bg: #1a0833;    --fn-bd: #9333ea;    --fn-tx: #e9d5ff;
+  --empty-bg: #0a0f1e; --empty-bd: #1e293b; --empty-tx: #374151;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: #e2e8f0;
+  padding: 28px 32px;
+  min-height: 100vh;
+}
+header { margin-bottom: 28px; }
+h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
+.tagline { font-size: 0.8rem; color: #64748b; }
+.tag {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  background: #1e293b; border: 1px solid #334155;
+  font-size: 0.7rem; color: #94a3b8; margin-right: 6px;
+}
+
+/* Tabs */
+.tabs { display: flex; gap: 3px; margin-bottom: 18px; }
+.tab {
+  padding: 7px 18px; border: 1px solid var(--border); border-radius: 6px 6px 0 0;
+  background: var(--surface); color: #64748b; font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; transition: all .15s; border-bottom: none; margin-bottom: -1px; z-index: 1;
+}
+.tab:hover { color: #e2e8f0; background: #1e293b; }
+.tab.on { background: #1e293b; color: #f8fafc; border-color: #4f46e5; border-bottom-color: #1e293b; }
+.tab .badge {
+  display: inline-block; width: 18px; height: 18px; border-radius: 50%;
+  font-size: 0.65rem; font-weight: 700; text-align: center; line-height: 18px;
+  margin-right: 6px;
+}
+.tab:nth-child(1) .badge { background: #3b82f6; color: #fff; }
+.tab:nth-child(2) .badge { background: #0284c7; color: #fff; }
+.tab:nth-child(3) .badge { background: #d97706; color: #fff; }
+.tab:nth-child(4) .badge { background: #9333ea; color: #fff; }
+
+/* Panel */
+.panel { display: none; background: #1e293b; border: 1px solid #4f46e5; border-radius: 0 8px 8px 8px; padding: 20px; }
+.panel.on { display: block; }
+.desc {
+  font-size: 0.78rem; color: #94a3b8; margin-bottom: 18px; padding: 10px 14px;
+  background: #0f172a; border-left: 3px solid #4f46e5; border-radius: 0 4px 4px 0;
+  line-height: 1.6;
+}
+.desc strong { color: #c4b5fd; }
+.how-to {
+  font-size: 0.72rem; color: #64748b; margin-top: 6px;
+}
+
+/* Keyboard wrapper */
+.kbd-wrap { display: flex; align-items: flex-start; gap: 0; overflow-x: auto; padding-bottom: 6px; }
+
+/* Half */
+.half { display: flex; flex-direction: column; gap: 4px; }
+
+.row { display: flex; gap: 4px; }
+
+/* Key */
+.k {
+  width: 52px; height: 52px;
+  border-radius: 7px; border: 1px solid;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 600;
+  text-align: center; cursor: default;
+  transition: transform .1s, box-shadow .1s;
+  padding: 3px 2px;
+  line-height: 1.25;
+  box-shadow: 0 2px 0 rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.3);
+  position: relative;
+  user-select: none;
+}
+.k:hover { transform: translateY(-2px); box-shadow: 0 4px 0 rgba(0,0,0,.6), 0 6px 12px rgba(0,0,0,.4); }
+.k sub {
+  font-size: 0.58rem; font-weight: 400; opacity: .7; display: block; margin-top: 2px;
+}
+.k .corner {
+  position: absolute; top: 3px; right: 4px;
+  font-size: 0.55rem; opacity: .55; font-weight: 400;
+}
+
+.k-a { background: var(--alpha-bg); border-color: var(--alpha-bd); color: var(--alpha-tx); }
+.k-m { background: var(--mod-bg);   border-color: var(--mod-bd);   color: var(--mod-tx);   }
+.k-l { background: var(--layer-bg); border-color: var(--layer-bd); color: var(--layer-tx); }
+.k-n { background: var(--nav-bg);   border-color: var(--nav-bd);   color: var(--nav-tx);   }
+.k-s { background: var(--sym-bg);   border-color: var(--sym-bd);   color: var(--sym-tx);   }
+.k-d { background: var(--num-bg);   border-color: var(--num-bd);   color: var(--num-tx);   }
+.k-y { background: var(--sys-bg);   border-color: var(--sys-bd);   color: var(--sys-tx);   }
+.k-o { background: var(--mouse-bg); border-color: var(--mouse-bd); color: var(--mouse-tx); }
+.k-f { background: var(--fn-bg);    border-color: var(--fn-bd);    color: var(--fn-tx);    }
+.k-e { background: var(--empty-bg); border-color: var(--empty-bd); color: var(--empty-tx); border-style: dashed; box-shadow: none; }
+.k-e:hover { transform: none; box-shadow: none; }
+
+/* Thumb keys */
+.thumb-row { display: flex; gap: 4px; margin-top: 6px; }
+.tl .thumb-row { justify-content: flex-end; }
+.tr .thumb-row { justify-content: flex-start; }
+.tk { width: 60px; height: 46px; }
+
+/* Center section */
+.center {
+  display: flex; flex-direction: row; align-items: center;
+  gap: 6px; padding: 0 8px;
+}
+.center-part {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+}
+.center-inner-sep {
+  width: 1px; background: #1e293b; align-self: stretch; margin: 0 2px;
+}
+.center-label {
+  font-size: 0.56rem; color: #475569; text-align: center;
+  text-transform: uppercase; letter-spacing: .07em; font-weight: 600;
+}
+
+/* Perilla (encoder rotatorio) */
+.knob-outer {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #1e3a5f 0%, #0c2340 60%, #060f1f 100%);
+  border: 2px solid #2563eb;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 0 rgba(0,0,0,.75), 0 5px 18px rgba(37,99,235,.25),
+              inset 0 1px 0 rgba(147,197,253,.12);
+  position: relative; cursor: default;
+  transition: box-shadow .15s;
+}
+.knob-outer:hover {
+  box-shadow: 0 3px 0 rgba(0,0,0,.75), 0 6px 22px rgba(37,99,235,.4),
+              inset 0 1px 0 rgba(147,197,253,.2);
+}
+.knob-inner {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #163354, #091929);
+  border: 1px solid #1e40af;
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.knob-dot {
+  position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+  width: 5px; height: 5px; border-radius: 50%; background: #93c5fd;
+  box-shadow: 0 0 4px #93c5fd;
+}
+.knob-arrows {
+  display: flex; justify-content: space-between; width: 68px;
+  font-size: 0.58rem; color: #64748b;
+}
+.knob-arrows span { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.knob-arrows .arr { font-size: 0.85rem; color: #93c5fd; line-height: 1; }
+.enc-btn { width: 62px; height: 32px; font-size: 0.64rem; }
+
+/* Joystick */
+.joy {
+  display: grid;
+  grid-template-columns: 38px 38px 38px;
+  grid-template-rows: 38px 38px 38px;
+  gap: 3px;
+}
+.joy .k { width: 38px; height: 38px; font-size: 1rem; }
+.joy-blank { width: 38px; height: 38px; }
+
+.sep {
+  width: 1px; background: #1e293b; align-self: stretch; margin: 0 6px;
+}
+
+/* Thumb cluster alignment */
+.thumbs {
+  display: flex; justify-content: center; gap: 4px; margin-top: 6px;
+}
+.thumbs-gap { width: 80px; flex-shrink: 0; }
+
+/* Legend */
+.legend {
+  margin-top: 20px; padding: 14px 16px;
+  background: #0f172a; border-radius: 8px; border: 1px solid #1e293b;
+}
+.legend h3 { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.legend-grid { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+.lg-item { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #94a3b8; }
+.lg-dot { width: 10px; height: 10px; border-radius: 2px; border: 1px solid; flex-shrink: 0; }
+
+/* Mac keys reference */
+.mac-ref {
+  margin-top: 14px; padding: 14px 16px;
+  background: #0f172a; border-radius: 8px; border: 1px solid #1e293b;
+}
+.mac-ref h3 { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.mac-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 5px; }
+.mac-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 10px; background: #111827; border-radius: 5px;
+  font-size: 0.73rem;
+}
+.mac-row .lbl { color: #64748b; }
+.mac-row .sym { color: #f1f5f9; font-weight: 700; font-size: 0.85rem; }
+.mac-row .desc { color: #94a3b8; font-size: 0.68rem; }
+
+/* Combo annotation */
+.combo-note {
+  font-size: 0.7rem; color: #f59e0b; margin-top: 12px; padding: 8px 12px;
+  background: #2d1500; border: 1px solid #92400e; border-radius: 5px;
+}
+.combo-note strong { color: #fde68a; }
+
+/* Encoder note */
+.enc-note { font-size: 0.68rem; color: #6ee7b7; }
+
+/* ── Tooltip flotante ──────────────────────────────────── */
+#ktt {
+  position: fixed; z-index: 9999;
+  background: #0f172a; color: #e2e8f0;
+  border: 1px solid #6366f1; border-radius: 7px;
+  padding: 7px 12px; font-size: 0.72rem; line-height: 1.55;
+  max-width: 240px; pointer-events: none; white-space: pre-line;
+  opacity: 0; transition: opacity .13s;
+  box-shadow: 0 6px 24px rgba(0,0,0,.6);
+  display: none;
+}
+#ktt.vis { opacity: 1; }
+#ktt::after {
+  content: ''; position: absolute;
+  border: 6px solid transparent; pointer-events: none;
+}
+#ktt[data-d="up"]::after {
+  bottom: -12px; left: var(--ax,50%); transform: translateX(-50%);
+  border-top-color: #6366f1;
+}
+#ktt[data-d="dn"]::after {
+  top: -12px; left: var(--ax,50%); transform: translateX(-50%);
+  border-bottom-color: #6366f1;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⌨️ Eyelash Corne — Mapa de Capas</h1>
+  <p class="tagline">
+    <span class="tag">42 teclas</span>
+    <span class="tag">Split ergonómico</span>
+    <span class="tag">4 capas</span>
+    <span class="tag">Encoder + Joystick 5 vías</span>
+    <span class="tag">NKRO</span>
+  </p>
+</header>
+
+<div class="tabs">
+  <button class="tab on"    onclick="show(0)"><span class="badge">0</span>QWERTY</button>
+  <button class="tab"       onclick="show(1)"><span class="badge">1</span>NUMBER</button>
+  <button class="tab"       onclick="show(2)"><span class="badge">2</span>SYMBOL</button>
+  <button class="tab"       onclick="show(3)"><span class="badge">3</span>Fn</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 0 — QWERTY
+     ═══════════════════════════════════════════════════════════ -->
+<div class="panel on" id="p0">
+  <div class="desc">
+    <strong>Capa base de escritura · Mac ES Latino.</strong> Letras del alfabeto con ñ en su posición natural (donde va ;).
+    La tecla <strong>´ (dead acute)</strong> permite tildes directas: ´+a=á, ´+e=é, etc.
+    El <strong>Shift izquierdo</strong> hace doble función: un toque = ⇧, dos toques = CAPS LOCK.<br>
+    <span class="how-to">Pulgares: ⌥ Option a la izquierda (acceso rápido a @ # € etc.), ⌘ Command a la derecha.
+    Joystick = ratón · Perilla = scroll · Presionar perilla = click derecho.</span>
+  </div>
+
+  <div class="kbd-wrap">
+    <!-- LEFT HALF -->
+    <div class="half tl">
+      <div class="row">
+        <div class="k k-m">⇥<sub>Tab</sub></div>
+        <div class="k k-a">Q</div>
+        <div class="k k-a">W</div>
+        <div class="k k-a">E</div>
+        <div class="k k-a">R</div>
+        <div class="k k-a">T</div>
+      </div>
+      <div class="row">
+        <div class="k k-m">⇧<sub>2×=CAPS</sub></div>
+        <div class="k k-a">A</div>
+        <div class="k k-a">S</div>
+        <div class="k k-a">D</div>
+        <div class="k k-a">F</div>
+        <div class="k k-a">G</div>
+      </div>
+      <div class="row">
+        <div class="k k-m">⌃<sub>Control</sub></div>
+        <div class="k k-a">Z</div>
+        <div class="k k-a">X</div>
+        <div class="k k-a">C</div>
+        <div class="k k-a">V</div>
+        <div class="k k-a">B</div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-m tk">⌥<sub>Option</sub></div>
+        <div class="k k-l tk">NUM<sub>mantén</sub></div>
+        <div class="k k-l tk">␣<sub>toca · FN↓</sub></div>
+      </div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="center">
+      <!-- Perilla -->
+      <div class="center-part">
+        <div class="center-label">Perilla</div>
+        <div class="knob-outer">
+          <div class="knob-dot"></div>
+          <div class="knob-inner">↕</div>
+        </div>
+        <div class="knob-arrows">
+          <span><span class="arr">◄</span><span>Scroll↓</span></span>
+          <span><span class="arr">►</span><span>Scroll↑</span></span>
+        </div>
+        <div class="k k-o enc-btn">🖱R<sub>presionar</sub></div>
+      </div>
+      <div class="center-inner-sep"></div>
+      <!-- Joystick -->
+      <div class="center-part">
+        <div class="center-label">Joystick</div>
+        <div class="joy">
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↑</div>
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱←</div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱L<sub>click</sub></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱→</div>
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↓</div>
+          <div class="joy-blank"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- RIGHT HALF -->
+    <div class="half tr">
+      <div class="row">
+        <div class="k k-a">Y</div>
+        <div class="k k-a">U</div>
+        <div class="k k-a">I</div>
+        <div class="k k-a">O</div>
+        <div class="k k-a">P</div>
+        <div class="k k-m">⌫<sub>Delete</sub></div>
+      </div>
+      <div class="row">
+        <div class="k k-a">H</div>
+        <div class="k k-a">J</div>
+        <div class="k k-a">K</div>
+        <div class="k k-a">L</div>
+        <div class="k k-a">ñ<sub>SEMI</sub></div>
+        <div class="k k-m">´<sub>dead acute</sub></div>
+      </div>
+      <div class="row">
+        <div class="k k-a">N</div>
+        <div class="k k-a">M</div>
+        <div class="k k-a">,</div>
+        <div class="k k-a">.</div>
+        <div class="k k-a">/</div>
+        <div class="k k-m">⎋<sub>Escape</sub></div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-l tk">↩<sub>toca · FN↓</sub></div>
+        <div class="k k-l tk">SYM<sub>mantén</sub></div>
+        <div class="k k-m tk">⌘<sub>Command</sub></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="combo-note">
+    <strong>Combo Soft-Off:</strong> Q + S + Z simultáneos → apaga el teclado inalámbrico.
+    &nbsp;·&nbsp; <strong>´ dead acute:</strong> presiona ´ y luego una vocal → á é í ó ú ü
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 1 — NUMBER
+     ═══════════════════════════════════════════════════════════ -->
+<div class="panel" id="p1">
+  <div class="desc">
+    <strong>Capa de números, volumen y navegación.</strong> Números en la fila superior (1–5 izquierda, 6–0 derecha).
+    La <strong>perilla se convierte en control de volumen</strong> y su botón en Mute. El <strong>joystick pasa a flechas</strong> de cursor con Enter al centro.
+    Flechas también disponibles en el bloque derecho (HJKL). Gestión Bluetooth y RGB en la izquierda.<br>
+    <span class="how-to">Activación: mantén el pulgar central izquierdo <strong>[NUM]</strong>.</span>
+  </div>
+
+  <div class="kbd-wrap">
+    <div class="half tl">
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-d">1</div>
+        <div class="k k-d">2</div>
+        <div class="k k-d">3</div>
+        <div class="k k-d">4</div>
+        <div class="k k-d">5</div>
+      </div>
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-y">BT<sub>Borrar Todo</sub></div>
+        <div class="k k-y">BT 0<sub>perfil 1</sub></div>
+        <div class="k k-y">BT 1<sub>perfil 2</sub></div>
+        <div class="k k-y">BT 2<sub>perfil 3</sub></div>
+        <div class="k k-y">BT 3<sub>perfil 4</sub></div>
+      </div>
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-y">RGB<sub>apagar</sub></div>
+        <div class="k k-y">RGB<sub>encender</sub></div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-y">RGB<sub>efecto →</sub></div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-e tk">▽</div>
+        <div class="k k-l tk">NUM<sub>activo</sub></div>
+        <div class="k k-e tk">▽</div>
+      </div>
+    </div>
+
+    <div class="center">
+      <!-- Perilla -->
+      <div class="center-part">
+        <div class="center-label">Perilla</div>
+        <div class="knob-outer">
+          <div class="knob-dot"></div>
+          <div class="knob-inner">🔊</div>
+        </div>
+        <div class="knob-arrows">
+          <span><span class="arr">◄</span><span>Vol–</span></span>
+          <span><span class="arr">►</span><span>Vol+</span></span>
+        </div>
+        <div class="k k-y enc-btn" style="font-size:.62rem;">🔇 Mute<sub>presionar</sub></div>
+      </div>
+      <div class="center-inner-sep"></div>
+      <!-- Joystick -->
+      <div class="center-part">
+        <div class="center-label">Joystick</div>
+        <div class="joy">
+          <div class="joy-blank"></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">↑</div>
+          <div class="joy-blank"></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">←</div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:.7rem;">↩<sub>Enter</sub></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">→</div>
+          <div class="joy-blank"></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">↓</div>
+          <div class="joy-blank"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="half tr">
+      <div class="row">
+        <div class="k k-d">6</div>
+        <div class="k k-d">7</div>
+        <div class="k k-d">8</div>
+        <div class="k k-d">9</div>
+        <div class="k k-d">0</div>
+        <div class="k k-m">⌫<sub>Delete</sub></div>
+      </div>
+      <div class="row">
+        <div class="k k-n">←</div>
+        <div class="k k-n">↓</div>
+        <div class="k k-n">↑</div>
+        <div class="k k-n">→</div>
+        <div class="k k-n">⌂<sub>Home</sub></div>
+        <div class="k k-n">⇞<sub>Pg Up</sub></div>
+      </div>
+      <div class="row">
+        <div class="k k-y">RGB<sub>efecto ←</sub></div>
+        <div class="k k-y">RGB<sub>veloc. +</sub></div>
+        <div class="k k-y">RGB<sub>brillo +</sub></div>
+        <div class="k k-y">RGB<sub>brillo –</sub></div>
+        <div class="k k-n">⤓<sub>End</sub></div>
+        <div class="k k-n">⇟<sub>Pg Dn</sub></div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-n tk">Ins<sub>Insert</sub></div>
+        <div class="k k-m tk">⌦<sub>Fwd Del</sub></div>
+        <div class="k k-e tk">▽</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 2 — SYMBOL
+     ═══════════════════════════════════════════════════════════ -->
+<div class="panel" id="p2">
+  <div class="desc">
+    <strong>Capa de símbolos y puntuación.</strong> Todos los símbolos frecuentes en programación distribuidos ergonómicamente.
+    Mano izquierda: símbolos de apertura (!, @, #, $, %). Mano derecha: operadores y delimitadores (-, =, [ ], { }, \ ` | ~).<br>
+    <span class="how-to">Activación: mantén el pulgar central derecho <strong>[SYM]</strong>. También da acceso a mouse y cambio de salida USB/BLE.</span>
+  </div>
+
+  <div class="kbd-wrap">
+    <div class="half tl">
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-s">!</div>
+        <div class="k k-s">@</div>
+        <div class="k k-s">#</div>
+        <div class="k k-s">$</div>
+        <div class="k k-s">%</div>
+      </div>
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-y">BT<sub>Limpiar</sub></div>
+        <div class="k k-o">🖱L<sub>click izq</sub></div>
+        <div class="k k-o">🖱M<sub>click med</sub></div>
+        <div class="k k-o">🖱R<sub>click der</sub></div>
+        <div class="k k-o">🖱B4<sub>botón 4</sub></div>
+      </div>
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-y">USB<sub>salida</sub></div>
+        <div class="k k-y">BLE<sub>salida</sub></div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
+        <div class="k k-o">🖱B5<sub>botón 5</sub></div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-e tk">▽</div>
+        <div class="k k-e tk">▽</div>
+        <div class="k k-m tk">␣<sub>Space</sub></div>
+      </div>
+    </div>
+
+    <div class="center">
+      <!-- Perilla -->
+      <div class="center-part">
+        <div class="center-label">Perilla</div>
+        <div class="knob-outer">
+          <div class="knob-dot"></div>
+          <div class="knob-inner">↕</div>
+        </div>
+        <div class="knob-arrows">
+          <span><span class="arr">◄</span><span>Scroll↓</span></span>
+          <span><span class="arr">►</span><span>Scroll↑</span></span>
+        </div>
+        <div class="k k-e enc-btn" style="font-size:.62rem;">▽ Space<sub>↓ capa 0</sub></div>
+      </div>
+      <div class="center-inner-sep"></div>
+      <!-- Joystick -->
+      <div class="center-part">
+        <div class="center-label">Joystick</div>
+        <div class="joy">
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↑</div>
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱←</div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱<sub>click L</sub></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱→</div>
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↓</div>
+          <div class="joy-blank"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="half tr">
+      <div class="row">
+        <div class="k k-s">^</div>
+        <div class="k k-s">&amp;</div>
+        <div class="k k-s">*</div>
+        <div class="k k-s">(</div>
+        <div class="k k-s">)</div>
+        <div class="k k-m">⌫</div>
+      </div>
+      <div class="row">
+        <div class="k k-s">-</div>
+        <div class="k k-s">=</div>
+        <div class="k k-s">[</div>
+        <div class="k k-s">]</div>
+        <div class="k k-s">\</div>
+        <div class="k k-s">`</div>
+      </div>
+      <div class="row">
+        <div class="k k-s">_</div>
+        <div class="k k-s">+</div>
+        <div class="k k-s">{</div>
+        <div class="k k-s">}</div>
+        <div class="k k-s">|</div>
+        <div class="k k-s">~</div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-m tk">↩<sub>Return</sub></div>
+        <div class="k k-l tk">SYM<sub>activo</sub></div>
+        <div class="k k-e tk">▽</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 3 — Fn
+     ═══════════════════════════════════════════════════════════ -->
+<div class="panel" id="p3">
+  <div class="desc">
+    <strong>Capa de funciones y sistema.</strong> Teclas F1–F12, capturas de pantalla Mac, Print Screen, Scroll Lock, Pause, bootloader y reset.
+    <strong>⌘⇧4</strong> captura un área seleccionada · <strong>⌘⇧5</strong> abre la barra de herramientas de captura completa (con opciones de video).<br>
+    <span class="how-to">Activación: mantén el pulgar izquierdo interno <strong>[␣/FN]</strong> o el derecho interno <strong>[↩/FN]</strong> desde cualquier capa.</span>
+  </div>
+
+  <div class="kbd-wrap">
+    <div class="half tl">
+      <div class="row">
+        <div class="k k-y" style="font-size:.62rem;">ZMK<sub>studio</sub></div>
+        <div class="k k-f">F1</div>
+        <div class="k k-f">F2</div>
+        <div class="k k-f">F3</div>
+        <div class="k k-f">F4</div>
+        <div class="k k-f">F5</div>
+      </div>
+      <div class="row">
+        <div class="k k-y" style="font-size:.6rem;">⌘⇧4<sub>capturar área</sub></div>
+        <div class="k k-e">▽</div>
+        <div class="k k-o">🖱L</div>
+        <div class="k k-o">🖱M</div>
+        <div class="k k-o">🖱R</div>
+        <div class="k k-o">🖱B4</div>
+      </div>
+      <div class="row">
+        <div class="k k-y" style="font-size:.6rem;">⌘⇧5<sub>herramienta</sub></div>
+        <div class="k k-y">RST<sub>sys reset</sub></div>
+        <div class="k k-e">▽</div>
+        <div class="k k-y">BOOT<sub>loader</sub></div>
+        <div class="k k-e">▽</div>
+        <div class="k k-o">🖱B5</div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-e tk">▽</div>
+        <div class="k k-e tk">▽</div>
+        <div class="k k-l tk">FN<sub>activo</sub></div>
+      </div>
+    </div>
+
+    <div class="center">
+      <!-- Perilla -->
+      <div class="center-part">
+        <div class="center-label">Perilla</div>
+        <div class="knob-outer">
+          <div class="knob-dot"></div>
+          <div class="knob-inner">↕</div>
+        </div>
+        <div class="knob-arrows">
+          <span><span class="arr">◄</span><span>Scroll↓</span></span>
+          <span><span class="arr">►</span><span>Scroll↑</span></span>
+        </div>
+        <div class="k k-y enc-btn" style="font-size:.62rem;">🔇 Mute<sub>presionar</sub></div>
+      </div>
+      <div class="center-inner-sep"></div>
+      <!-- Joystick -->
+      <div class="center-part">
+        <div class="center-label">Joystick</div>
+        <div class="joy">
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↑</div>
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱←</div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱<sub>click L</sub></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱→</div>
+          <div class="joy-blank"></div>
+          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↓</div>
+          <div class="joy-blank"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="half tr">
+      <div class="row">
+        <div class="k k-f">F6</div>
+        <div class="k k-f">F7</div>
+        <div class="k k-f">F8</div>
+        <div class="k k-f">F9</div>
+        <div class="k k-f">F10</div>
+        <div class="k k-f">F11</div>
+      </div>
+      <div class="row">
+        <div class="k k-y">BOOT<sub>loader</sub></div>
+        <div class="k k-o">🖱L</div>
+        <div class="k k-o">🖱M</div>
+        <div class="k k-o">🖱R</div>
+        <div class="k k-y">⎙<sub>Print Scr</sub></div>
+        <div class="k k-f">F12</div>
+      </div>
+      <div class="row">
+        <div class="k k-y" style="font-size:.6rem;">⌘⌃Q<sub>bloquear</sub></div>
+        <div class="k k-e">▽</div>
+        <div class="k k-y">BOOT<sub>loader</sub></div>
+        <div class="k k-y">RST<sub>sys reset</sub></div>
+        <div class="k k-y">SCR<sub>Scroll Lk</sub></div>
+        <div class="k k-y">⏸<sub>Pause Brk</sub></div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-l tk">FN<sub>activo</sub></div>
+        <div class="k k-e tk">▽</div>
+        <div class="k k-e tk">▽</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LEYENDA
+     ═══════════════════════════════════════════════════════════ -->
+<div class="legend">
+  <h3>Leyenda de colores</h3>
+  <div class="legend-grid">
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--alpha-bg);border-color:var(--alpha-bd)"></div>
+      Letra / Símbolo base
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--mod-bg);border-color:var(--mod-bd)"></div>
+      Modificador Mac (⌘ ⌥ ⌃ ⇧)
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--layer-bg);border-color:var(--layer-bd)"></div>
+      Activador de capa (hold/tap)
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--nav-bg);border-color:var(--nav-bd)"></div>
+      Navegación (flechas, Home, PgUp…)
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--sym-bg);border-color:var(--sym-bd)"></div>
+      Símbolo de programación
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--num-bg);border-color:var(--num-bd)"></div>
+      Número
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--sys-bg);border-color:var(--sys-bd)"></div>
+      Sistema (BT, RGB, Reset, Boot)
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--mouse-bg);border-color:var(--mouse-bd)"></div>
+      Mouse (movimiento y botones)
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--fn-bg);border-color:var(--fn-bd)"></div>
+      Función (F1–F12)
+    </div>
+    <div class="lg-item">
+      <div class="lg-dot" style="background:var(--empty-bg);border-color:var(--empty-bd);border-style:dashed"></div>
+      ▽ Transparente (hereda capa inferior)
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     REFERENCIA TECLAS MAC
+     ═══════════════════════════════════════════════════════════ -->
+<div class="mac-ref">
+  <h3>¿Dónde están las teclas del Mac?</h3>
+  <div class="mac-grid">
+    <div class="mac-row">
+      <span class="lbl">⌘ Command</span>
+      <span class="sym">⌘</span>
+      <span class="desc">Pulgar izq. externo (capa 0)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⌥ Option (izq.)</span>
+      <span class="sym">⌥</span>
+      <span class="desc">No asignado — usar Home Row Mod</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⌥ Option (der.)</span>
+      <span class="sym">⌥</span>
+      <span class="desc">Pulgar der. externo (capa 0)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⌃ Control</span>
+      <span class="sym">⌃</span>
+      <span class="desc">Columna izq. fila 3 (capa 0)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⇧ Shift</span>
+      <span class="sym">⇧</span>
+      <span class="desc">Columna izq. fila 2 (capa 0)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⌫ Delete (backspace)</span>
+      <span class="sym">⌫</span>
+      <span class="desc">Fila superior, extremo derecho</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⌦ Fwd Delete</span>
+      <span class="sym">⌦</span>
+      <span class="desc">Pulgar der. central (capa 1)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">↩ Return</span>
+      <span class="sym">↩</span>
+      <span class="desc">Pulgar izq. interno · Joystick OK</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⇥ Tab</span>
+      <span class="sym">⇥</span>
+      <span class="desc">Columna izq. fila 1 (capa 0)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⎋ Escape</span>
+      <span class="sym">⎋</span>
+      <span class="desc">Columna der. fila 3 (capa 0)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">Flechas ← ↑ ↓ →</span>
+      <span class="sym">←↑↓→</span>
+      <span class="desc">Joystick central · Capa 1 der.</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">F1 – F12</span>
+      <span class="sym">Fn</span>
+      <span class="desc">Capa 3 completa (ambos lados)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⎙ Print Screen</span>
+      <span class="sym">⎙</span>
+      <span class="desc">Capa 3 · Fila 2 col 5 (der.)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⌂ Home / ⤓ End</span>
+      <span class="sym">⌂⤓</span>
+      <span class="desc">Capa 1 · Fila 2 cols 5–6 (der.)</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⇞ Pg Up / ⇟ Pg Dn</span>
+      <span class="sym">⇞⇟</span>
+      <span class="desc">Capa 1 · Fila 2–3 extremo der.</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">Ins / Insert</span>
+      <span class="sym">Ins</span>
+      <span class="desc">Capa 1 · Pulgar der. izquierdo</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">↕ Scroll (capa 0)</span>
+      <span class="sym">↕</span>
+      <span class="desc">Girar perilla · presionar = 🖱 click der.</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">🔊 Vol ± (capa 1)</span>
+      <span class="sym">🔊</span>
+      <span class="desc">Girar perilla · presionar = 🔇 Mute</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">↕ Scroll (capas 2–3)</span>
+      <span class="sym">↕</span>
+      <span class="desc">Girar perilla · presionar = Mute</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">🖱 Mouse (capa 0)</span>
+      <span class="sym">🖱</span>
+      <span class="desc">Joystick mueve cursor · centro = click izq.</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">´ Dead acute (capa 0)</span>
+      <span class="sym">´</span>
+      <span class="desc">Pulgar der. home row · luego vocal = tilde</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">🖱 Mouse</span>
+      <span class="sym">🖱</span>
+      <span class="desc">Joystick (capas 1–3) + botones</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">BT perfil 0–3</span>
+      <span class="sym">BT</span>
+      <span class="desc">Capa 1 · Fila 2 izquierda</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">USB ↔ BLE</span>
+      <span class="sym">⇄</span>
+      <span class="desc">Capa 2 · Fila 3 cols 2–3 izq.</span>
+    </div>
+  </div>
+</div>
+
+<div id="ktt"></div>
+
+<script>
+function show(n) {
+  document.querySelectorAll('.panel').forEach((p, i) => p.classList.toggle('on', i === n));
+  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('on', i === n));
+}
+
+// ── Tooltips ──────────────────────────────────────────────
+(function(){
+const T={
+  '⇥':'Tabular · cambiar foco entre campos',
+  '⇧|2×=CAPS':'Shift · doble toque = Bloq. Mayús',
+  '⌃|Control':'⌃ Control (Mac)',
+  'ñ|SEMI':'ñ / Ñ (con Shift) · posición natural en ES Latino',
+  '´|dead acute':'Dead Acute\nPresiona ´ y luego una vocal:\n´+a=á · ´+e=é · ´+i=í · ´+o=ó · ´+u=ú',
+  '⌫|Delete':'⌫ Borrar hacia atrás (Backspace)',
+  '⎋|Escape':'⎋ Escape · cancelar, salir de modos',
+  '⌥|Option':'⌥ Option (Alt) en ES Latino:\n@=⌥Q · #=⌥3 · €=⌥E · ~=⌥N',
+  '⌘|Command':'⌘ Command (Mac)\n⌘C copiar · ⌘V pegar · ⌘Z deshacer · ⌘⇥ cambiar app',
+  'NUM|mantén':'Mantener → Capa 1\nNúmeros · volumen · Bluetooth · navegación',
+  'SYM|mantén':'Mantener → Capa 2\nSímbolos de programación',
+  'NUM|activo':'Capa 1 activa (mantén pulsada)',
+  'SYM|activo':'Capa 2 activa (mantén pulsada)',
+  'FN|activo':'Capa Fn activa (mantén pulsada)',
+  '␣|toca · FN↓':'Toca = ␣ Espacio\nMantener = Capa Fn (F-keys, capturas, bloqueo)',
+  '↩|toca · FN↓':'Toca = ↩ Return\nMantener = Capa Fn',
+  '▽':'Transparente · hereda la capa inferior',
+  '🖱R|presionar':'Click derecho del mouse\n(presionar la perilla)',
+  '🖱L|click':'Click izquierdo del mouse',
+  '🖱L':'Click izquierdo del mouse',
+  '🖱M':'Click botón central del mouse',
+  '🖱R':'Click derecho del mouse',
+  '🖱↑|mouse':'Mover cursor hacia arriba',
+  '🖱↑':'Mover cursor hacia arriba',
+  '🖱↓':'Mover cursor hacia abajo',
+  '🖱←':'Mover cursor hacia la izquierda',
+  '🖱→':'Mover cursor hacia la derecha',
+  '🖱B4':'Botón extra 4 (atrás en el navegador)',
+  '🖱B5':'Botón extra 5 (adelante en el navegador)',
+  '←':'Flecha izquierda',
+  '→':'Flecha derecha',
+  '↑':'Flecha arriba',
+  '↓':'Flecha abajo',
+  '↩|Enter':'Enter / Confirmar',
+  '↩|OK':'Click central del joystick',
+  '⌂|Home':'Inicio de línea / documento',
+  '⤓|End':'Fin de línea / documento',
+  '⇞|Pg Up':'⇞ Página arriba',
+  '⇟|Pg Dn':'⇟ Página abajo',
+  '⌦|Fwd Del':'⌦ Forward Delete · borrar hacia adelante',
+  'Ins|Insert':'Insert · alternar modo sobreescritura',
+  'BT|Borrar Todo':'Borrar TODOS los perfiles Bluetooth guardados',
+  'BT|Limpiar':'Limpiar el perfil Bluetooth activo',
+  'BT 0|perfil 1':'Conectar al dispositivo Bluetooth 1',
+  'BT 1|perfil 2':'Conectar al dispositivo Bluetooth 2',
+  'BT 2|perfil 3':'Conectar al dispositivo Bluetooth 3',
+  'BT 3|perfil 4':'Conectar al dispositivo Bluetooth 4',
+  'RGB|apagar':'Apagar iluminación RGB',
+  'RGB|encender':'Encender iluminación RGB',
+  'RGB|efecto →':'Siguiente efecto de iluminación',
+  'RGB|efecto ←':'Efecto anterior de iluminación',
+  'RGB|veloc. +':'Aumentar velocidad del efecto RGB',
+  'RGB|brillo +':'Aumentar brillo del RGB',
+  'RGB|brillo –':'Reducir brillo del RGB',
+  'USB|salida':'Cambiar salida a cable USB',
+  'BLE|salida':'Cambiar salida a Bluetooth inalámbrico',
+  '🔇 Mute|presionar':'Silenciar / activar audio\n(presionar la perilla en capa 1)',
+  'ZMK|studio':'Desbloquear ZMK Studio\nEditar el keymap en tiempo real vía USB',
+  '⌘⇧4|capturar área':'⌘⇧4 · Capturar área\nArrastra para seleccionar la zona',
+  '⌘⇧5|herramienta':'⌘⇧5 · Barra de capturas\nÁrea · ventana · pantalla · grabación de video',
+  '⌘⌃Q|bloquear':'⌘⌃Q · Bloquear pantalla\nLa sesión queda bloqueada de inmediato',
+  'BOOT|loader':'Modo bootloader\nPara actualizar el firmware ZMK via USB',
+  'RST|sys reset':'Reiniciar el teclado (soft reset)',
+  '⎙|Print Scr':'Print Screen (Windows / Linux)',
+  'SCR|Scroll Lk':'Scroll Lock',
+  '⏸|Pause Brk':'Pause / Break',
+  'F1':'F1 · Mac: reducir brillo de pantalla',
+  'F2':'F2 · Mac: aumentar brillo de pantalla',
+  'F3':'F3 · Mac: Mission Control',
+  'F4':'F4 · Mac: Spotlight / Launchpad',
+  'F5':'F5 · Mac: reducir brillo del teclado',
+  'F6':'F6 · Mac: aumentar brillo del teclado',
+  'F7':'F7 · Mac: ⏮ retroceder',
+  'F8':'F8 · Mac: ⏯ play / pausa',
+  'F9':'F9 · Mac: ⏭ avanzar pista',
+  'F10':'F10 · Mac: 🔇 silenciar',
+  'F11':'F11 · Mac: 🔉 bajar volumen',
+  'F12':'F12 · Mac: 🔊 subir volumen',
+  '!':'Signo de exclamación',
+  '@':'@ Arroba (US layout)',
+  '#':'# Numeral / hash',
+  '$':'$ Signo de dólar',
+  '%':'% Porcentaje',
+  '^':'^ Circunflejo (caret)',
+  '&':'& Ampersand',
+  '*':'* Asterisco',
+  '(':'( Paréntesis que abre',
+  ')':') Paréntesis que cierra',
+  '-':'- Guión / menos',
+  '=':'= Igual',
+  '[':'[ Corchete que abre',
+  ']':'] Corchete que cierra',
+  '\\':'\\ Barra invertida (backslash)',
+  '`':'` Backtick / comilla grave',
+  '_':'_ Guión bajo (underscore)',
+  '+':'+ Más',
+  '{':'{ Llave que abre',
+  '}':'} Llave que cierra',
+  '|':'| Barra vertical (pipe)',
+  '~':'~ Virgulilla',
+  ',':'Coma',
+  '.':'Punto',
+  '/':'/ Barra diagonal (slash)',
+};
+
+const tip=document.getElementById('ktt');
+let h;
+
+function read(el){
+  if(el.dataset.tip) return el.dataset.tip;
+  const c=el.cloneNode(true);
+  c.querySelectorAll('sub').forEach(n=>n.remove());
+  const m=c.textContent.trim();
+  const s=((el.querySelector('sub')||{}).textContent||'').trim();
+  return T[s ? m+'|'+s : m] || T[m] || null;
+}
+
+function place(el){
+  tip.style.display='block';
+  const r=el.getBoundingClientRect();
+  const tw=tip.offsetWidth, th=tip.offsetHeight;
+  let left=r.left+r.width/2-tw/2;
+  let top=r.top-th-12;
+  let d='up';
+  if(top<6){top=r.bottom+12; d='dn';}
+  left=Math.max(6,Math.min(left,innerWidth-tw-6));
+  const ax=Math.max(12,Math.min(r.left+r.width/2-left, tw-12));
+  tip.style.left=left+'px';
+  tip.style.top=top+'px';
+  tip.style.setProperty('--ax',ax+'px');
+  tip.dataset.d=d;
+}
+
+document.addEventListener('mouseover',e=>{
+  const k=e.target.closest('.k');
+  if(!k) return;
+  const txt=read(k);
+  if(!txt) return;
+  clearTimeout(h);
+  tip.textContent=txt;
+  place(k);
+  tip.classList.add('vis');
+});
+
+document.addEventListener('mouseout',e=>{
+  if(!e.target.closest('.k')) return;
+  h=setTimeout(()=>tip.classList.remove('vis'),80);
+});
+})();
+</script>
+</body>
+</html>
