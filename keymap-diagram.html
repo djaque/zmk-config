@@ -226,6 +226,73 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
 /* Encoder note */
 .enc-note { font-size: 0.68rem; color: #6ee7b7; }
 
+/* ── Textarea de prueba ─────────────────────────────────── */
+.test-box {
+  margin-top: 20px;
+  background: #1e293b; border: 1px solid #334155;
+  border-radius: 8px; padding: 16px;
+}
+.test-box h3 {
+  font-size: 0.7rem; color: #64748b;
+  text-transform: uppercase; letter-spacing: .07em; margin-bottom: 12px;
+}
+.test-box-inner {
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.test-box textarea {
+  flex: 1; height: 110px;
+  background: #0f172a; border: 1px solid #334155; border-radius: 6px;
+  color: #f1f5f9; font-family: inherit; font-size: 0.85rem;
+  padding: 10px 12px; resize: vertical; outline: none;
+  line-height: 1.65;
+  transition: border-color .15s, box-shadow .15s;
+}
+.test-box textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99,102,241,.2);
+}
+.test-box textarea::placeholder { color: #334155; }
+.test-right {
+  display: flex; flex-direction: column; gap: 8px; min-width: 200px;
+}
+.test-meta {
+  display: flex; justify-content: space-between;
+  font-size: 0.67rem; color: #475569;
+  padding: 5px 10px; background: #0f172a; border-radius: 5px;
+}
+.last-key-wrap {
+  padding: 10px 12px;
+  background: #0f172a; border: 1px solid #1e293b; border-radius: 6px;
+}
+.last-key-wrap .lk-label {
+  font-size: 0.62rem; color: #475569; text-transform: uppercase;
+  letter-spacing: .06em; margin-bottom: 5px;
+}
+.last-key-wrap .lk-val {
+  font-size: 0.9rem; font-weight: 600; color: #c4b5fd;
+  min-height: 22px; transition: color .2s;
+}
+.last-key-wrap .lk-code {
+  font-size: 0.62rem; color: #475569; margin-top: 3px; font-family: monospace;
+}
+.clear-btn {
+  padding: 6px 10px;
+  background: transparent; border: 1px solid #334155; border-radius: 5px;
+  color: #64748b; font-size: 0.72rem; cursor: pointer; transition: all .15s;
+}
+.clear-btn:hover { border-color: #6366f1; color: #c4b5fd; background: #1e0d4e22; }
+
+/* ── Tecla iluminada al escribir ───────────────────────── */
+.k.lit {
+  filter: brightness(2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 0 rgba(0,0,0,.6), 0 6px 18px rgba(99,102,241,.5) !important;
+  transition: none !important;
+  outline: 2px solid #818cf8;
+  outline-offset: 1px;
+  z-index: 10; position: relative;
+}
+
 /* ── Tooltip flotante ──────────────────────────────────── */
 #ktt {
   position: fixed; z-index: 9999;
@@ -280,8 +347,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
     <strong>Capa base de escritura · Mac ES Latino.</strong> Letras del alfabeto con ñ en su posición natural (donde va ;).
     La tecla <strong>´ (dead acute)</strong> permite tildes directas: ´+a=á, ´+e=é, etc.
     El <strong>Shift izquierdo</strong> hace doble función: un toque = ⇧, dos toques = CAPS LOCK.<br>
-    <span class="how-to">Pulgares: ⌥ Option a la izquierda (acceso rápido a @ # € etc.), ⌘ Command a la derecha.
-    Joystick = ratón · Perilla = scroll · Presionar perilla = click derecho.</span>
+    <span class="how-to">Ambos pulgares internos = ␣ Espacio (tap) · FN (hold) · ↩ Return = extremo inferior derecho · ⎋ Escape = ⌃+Tab combo.</span>
   </div>
 
   <div class="kbd-wrap">
@@ -377,10 +443,10 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-a">,</div>
         <div class="k k-a">.</div>
         <div class="k k-a">/</div>
-        <div class="k k-m">⎋<sub>Escape</sub></div>
+        <div class="k k-m">↩<sub>Return</sub></div>
       </div>
       <div class="thumb-row">
-        <div class="k k-l tk">↩<sub>toca · FN↓</sub></div>
+        <div class="k k-l tk">␣<sub>toca · FN↓</sub></div>
         <div class="k k-l tk">SYM<sub>mantén</sub></div>
         <div class="k k-m tk">⌘<sub>Command</sub></div>
       </div>
@@ -390,6 +456,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
   <div class="combo-note">
     <strong>Combo Soft-Off:</strong> Q + S + Z simultáneos → apaga el teclado inalámbrico.
     &nbsp;·&nbsp; <strong>´ dead acute:</strong> presiona ´ y luego una vocal → á é í ó ú ü
+    &nbsp;·&nbsp; <strong>⎋ Escape:</strong> ⌃ + Tab simultáneos (cualquier capa)
   </div>
 </div>
 
@@ -907,13 +974,197 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
   </div>
 </div>
 
+<div class="test-box">
+  <h3>Área de prueba</h3>
+  <div class="test-box-inner">
+    <textarea id="test-input"
+      placeholder="Escribe aquí para probar el teclado…&#10;Verifica ñ, á é í ó ú, @, #, {}, [], etc."></textarea>
+    <div class="test-right">
+      <div class="test-meta">
+        <span id="tc-chars">0 caracteres</span>
+        <span id="tc-words">0 palabras</span>
+      </div>
+      <div class="last-key-wrap">
+        <div class="lk-label">Última tecla</div>
+        <div class="lk-val" id="lk-val">—</div>
+        <div class="lk-code" id="lk-code"></div>
+      </div>
+      <button class="clear-btn" id="clear-btn">Limpiar</button>
+    </div>
+  </div>
+</div>
+
 <div id="ktt"></div>
 
 <script>
 function show(n) {
   document.querySelectorAll('.panel').forEach((p, i) => p.classList.toggle('on', i === n));
   document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('on', i === n));
+  // Limpiar highlights al cambiar de capa
+  document.querySelectorAll('.k.lit').forEach(el => el.classList.remove('lit'));
+  activeKeys.clear();
 }
+
+// ── Highlight de teclas en el mapa ────────────────────────
+const activeKeys = new Map(); // code → elemento DOM
+
+(function(){
+  // { s: 'l'|'r', r: 0|1|2|'t', c: columna }
+  const P = {
+    // ── Capa 0 QWERTY — lado izquierdo ────────────────────
+    'Tab':         {s:'l',r:0,c:0},
+    'KeyQ':        {s:'l',r:0,c:1}, 'KeyW':{s:'l',r:0,c:2}, 'KeyE':{s:'l',r:0,c:3},
+    'KeyR':        {s:'l',r:0,c:4}, 'KeyT':{s:'l',r:0,c:5},
+    'ShiftLeft':   {s:'l',r:1,c:0}, 'CapsLock':{s:'l',r:1,c:0},
+    'KeyA':        {s:'l',r:1,c:1}, 'KeyS':{s:'l',r:1,c:2}, 'KeyD':{s:'l',r:1,c:3},
+    'KeyF':        {s:'l',r:1,c:4}, 'KeyG':{s:'l',r:1,c:5},
+    'ControlLeft': {s:'l',r:2,c:0}, 'ControlRight':{s:'l',r:2,c:0},
+    'KeyZ':        {s:'l',r:2,c:1}, 'KeyX':{s:'l',r:2,c:2}, 'KeyC':{s:'l',r:2,c:3},
+    'KeyV':        {s:'l',r:2,c:4}, 'KeyB':{s:'l',r:2,c:5},
+    // Pulgares izquierdos
+    'AltLeft':     {s:'l',r:'t',c:0},
+    'Space':       {s:'l',r:'t',c:2},
+
+    // ── Capa 0 QWERTY — lado derecho ──────────────────────
+    'KeyY':        {s:'r',r:0,c:0}, 'KeyU':{s:'r',r:0,c:1}, 'KeyI':{s:'r',r:0,c:2},
+    'KeyO':        {s:'r',r:0,c:3}, 'KeyP':{s:'r',r:0,c:4},
+    'Backspace':   {s:'r',r:0,c:5},
+    'KeyH':        {s:'r',r:1,c:0}, 'KeyJ':{s:'r',r:1,c:1}, 'KeyK':{s:'r',r:1,c:2},
+    'KeyL':        {s:'r',r:1,c:3},
+    'Semicolon':   {s:'r',r:1,c:4},  // ñ en ES Latino
+    'BracketLeft': {s:'r',r:1,c:5},  // ´ dead acute / [ en SYMBOL
+    'KeyN':        {s:'r',r:2,c:0}, 'KeyM':{s:'r',r:2,c:1},
+    'Comma':       {s:'r',r:2,c:2}, 'Period':{s:'r',r:2,c:3},
+    'Slash':       {s:'r',r:2,c:4}, 'Escape':{s:'r',r:2,c:5},
+    // Pulgares derechos
+    'Enter':       {s:'r',r:'t',c:0},
+    'MetaLeft':    {s:'r',r:'t',c:2}, 'MetaRight':{s:'r',r:'t',c:2},
+    'AltRight':    {s:'r',r:'t',c:2}, // RALT = ⌘ en este layout
+
+    // ── Capa NUMBER — flechas y navegación (lado derecho) ─
+    'ArrowLeft':   {s:'r',r:1,c:0},  // posición H
+    'ArrowDown':   {s:'r',r:1,c:1},  // posición J
+    'ArrowUp':     {s:'r',r:1,c:2},  // posición K
+    'ArrowRight':  {s:'r',r:1,c:3},  // posición L
+    'Home':        {s:'r',r:1,c:4},  // posición ;
+    'PageUp':      {s:'r',r:1,c:5},  // posición '
+    'End':         {s:'r',r:2,c:4},  // posición /
+    'PageDown':    {s:'r',r:2,c:5},  // posición ESC
+    // Pulgares derechos capa NUMBER
+    'Insert':      {s:'r',r:'t',c:0},
+    'Delete':      {s:'r',r:'t',c:1},
+
+    // ── Capa Fn — F1–F12 ──────────────────────────────────
+    'F1': {s:'l',r:0,c:1}, 'F2':{s:'l',r:0,c:2}, 'F3':{s:'l',r:0,c:3},
+    'F4': {s:'l',r:0,c:4}, 'F5':{s:'l',r:0,c:5},
+    'F6': {s:'r',r:0,c:0}, 'F7':{s:'r',r:0,c:1}, 'F8':{s:'r',r:0,c:2},
+    'F9': {s:'r',r:0,c:3}, 'F10':{s:'r',r:0,c:4},'F11':{s:'r',r:0,c:5},
+    'F12':{s:'r',r:1,c:5},
+
+    // ── Capa SYMBOL — operadores unshifted ────────────────
+    'Minus':        {s:'r',r:1,c:0},  // - en posición H
+    'Equal':        {s:'r',r:1,c:1},  // = en posición J
+    'BracketRight': {s:'r',r:1,c:3},  // ] en posición L
+    'Backslash':    {s:'r',r:1,c:4},  // \ en posición ;
+    'Backquote':    {s:'r',r:1,c:5},  // ` en posición '
+  };
+
+  // Shifted → posición fila inferior SYMBOL
+  const PS = {
+    'Minus':        {s:'r',r:2,c:0},  // _ en posición N
+    'Equal':        {s:'r',r:2,c:1},  // + en posición M
+    'BracketLeft':  {s:'r',r:2,c:2},  // { en posición ,
+    'BracketRight': {s:'r',r:2,c:3},  // } en posición .
+    'Backslash':    {s:'r',r:2,c:4},  // | en posición /
+    'Backquote':    {s:'r',r:2,c:5},  // ~ en posición ESC
+  };
+
+  function getEl(code, shifted) {
+    const p = (shifted && PS[code]) ? PS[code] : P[code];
+    if (!p) return null;
+    const panel = document.querySelector('.panel.on');
+    if (!panel) return null;
+    const half = panel.querySelector(p.s === 'l' ? '.half.tl' : '.half.tr');
+    if (!half) return null;
+    if (p.r === 't') {
+      const tr = half.querySelector('.thumb-row');
+      return tr ? tr.querySelectorAll('.k')[p.c] || null : null;
+    }
+    const rows = half.querySelectorAll('.row');
+    return rows[p.r] ? rows[p.r].querySelectorAll('.k')[p.c] || null : null;
+  }
+
+  const inp = document.getElementById('test-input');
+
+  inp.addEventListener('keydown', e => {
+    if (activeKeys.has(e.code)) return;
+    const el = getEl(e.code, e.shiftKey);
+    if (!el) return;
+    el.classList.add('lit');
+    activeKeys.set(e.code, el);
+  });
+
+  inp.addEventListener('keyup', e => {
+    const el = activeKeys.get(e.code);
+    if (el) { el.classList.remove('lit'); activeKeys.delete(e.code); }
+  });
+
+  // Si el foco sale del textarea, apagar todo
+  inp.addEventListener('blur', () => {
+    activeKeys.forEach(el => el.classList.remove('lit'));
+    activeKeys.clear();
+  });
+})();
+
+// ── Textarea de prueba ────────────────────────────────────
+(function(){
+  const inp  = document.getElementById('test-input');
+  const cc   = document.getElementById('tc-chars');
+  const wc   = document.getElementById('tc-words');
+  const lkv  = document.getElementById('lk-val');
+  const lkc  = document.getElementById('lk-code');
+  const btn  = document.getElementById('clear-btn');
+
+  const KEY_NAMES = {
+    'Enter':'↩ Return','Backspace':'⌫ Backspace','Tab':'⇥ Tab',
+    'Escape':'⎋ Escape','Delete':'⌦ Delete',' ':'␣ Espacio',
+    'ArrowUp':'↑','ArrowDown':'↓','ArrowLeft':'←','ArrowRight':'→',
+    'Home':'⌂ Home','End':'⤓ End','PageUp':'⇞ Pg Up','PageDown':'⇟ Pg Dn',
+    'CapsLock':'⇪ Caps Lock','Shift':'⇧ Shift','Control':'⌃ Control',
+    'Alt':'⌥ Option','Meta':'⌘ Command','Dead':'´ dead key',
+  };
+
+  function updateCount() {
+    const v = inp.value;
+    cc.textContent = v.length + (v.length === 1 ? ' carácter' : ' caracteres');
+    const w = v.trim() ? v.trim().split(/\s+/).length : 0;
+    wc.textContent = w + (w === 1 ? ' palabra' : ' palabras');
+  }
+
+  inp.addEventListener('input', updateCount);
+
+  inp.addEventListener('keydown', e => {
+    const mods = [];
+    if (e.ctrlKey  && e.key !== 'Control') mods.push('⌃');
+    if (e.metaKey  && e.key !== 'Meta')    mods.push('⌘');
+    if (e.altKey   && e.key !== 'Alt')     mods.push('⌥');
+    if (e.shiftKey && e.key !== 'Shift')   mods.push('⇧');
+
+    const label = KEY_NAMES[e.key] || e.key;
+    lkv.textContent = mods.join('') + label;
+    lkc.textContent = 'code: ' + e.code + (e.key.length > 1 ? '' : '  key: "' + e.key + '"');
+
+    lkv.style.color = '#818cf8';
+    clearTimeout(lkv._t);
+    lkv._t = setTimeout(() => lkv.style.color = '', 350);
+  });
+
+  btn.addEventListener('click', () => {
+    inp.value = '';
+    updateCount();
+    inp.focus();
+  });
+})();
 
 // ── Tooltips ──────────────────────────────────────────────
 (function(){
