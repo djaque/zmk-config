@@ -67,14 +67,14 @@
 
         bt_clr {
             bindings = <&bt BT_CLR>;
-            key-positions = <10 11>;
+            key-positions = <32 37>;
             layers = <3>;
             timeout-ms = <50>;
         };
 
         bt_clr_all {
             bindings = <&bt BT_CLR_ALL>;
-            key-positions = <10 11 12>;
+            key-positions = <28 32 37>;
             layers = <3>;
             timeout-ms = <50>;
         };
