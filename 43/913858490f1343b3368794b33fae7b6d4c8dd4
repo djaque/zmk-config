@@ -1,0 +1,25 @@
+config/eyelash_corne.keymap
+  9c2c2ef21bf35fb9 109-111
+keymap-diagram.html
+  9c2c2ef21bf35fb9 470-471,478,486,494,496-498,565,926-933,1226-1231
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "43913858490f1343b3368794b33fae7b6d4c8dd4",
+  "prompts": {
+    "9c2c2ef21bf35fb9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a4af8d48-135f-485e-b09b-e720527a8d6a",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Dany Obed Patricio Jaque Herrera",
+      "messages": [],
+      "total_additions": 30,
+      "total_deletions": 18,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    }
+  }
+}
