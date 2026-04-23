@@ -347,7 +347,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
     <strong>Capa base de escritura · Mac ES Latino.</strong> Letras del alfabeto con ñ en su posición natural (donde va ;).
     La tecla <strong>´ (dead acute)</strong> permite tildes directas: ´+a=á, ´+e=é, etc.
     El <strong>Shift izquierdo</strong> hace doble función: un toque = ⇧, dos toques = CAPS LOCK.<br>
-    <span class="how-to">Ambos pulgares internos = ␣ Espacio (tap) · FN (hold) · ↩ Return = extremo inferior derecho · ⎋ Escape = ⌃+Tab combo.</span>
+    <span class="how-to">Pulgar izq. interno: tap = ␣, doble tap = ⎋, hold = FN · Pulgar der. interno: tap = ␣, hold = FN · ↩ Return = esquina inferior derecha.</span>
   </div>
 
   <div class="kbd-wrap">
@@ -380,7 +380,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       <div class="thumb-row">
         <div class="k k-m tk">⌥<sub>Option</sub></div>
         <div class="k k-l tk">NUM<sub>mantén</sub></div>
-        <div class="k k-l tk">␣<sub>toca · FN↓</sub></div>
+        <div class="k k-l tk">␣ /⎋<sub>2×=ESC · FN↓</sub></div>
       </div>
     </div>
 
@@ -456,7 +456,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
   <div class="combo-note">
     <strong>Combo Soft-Off:</strong> Q + S + Z simultáneos → apaga el teclado inalámbrico.
     &nbsp;·&nbsp; <strong>´ dead acute:</strong> presiona ´ y luego una vocal → á é í ó ú ü
-    &nbsp;·&nbsp; <strong>⎋ Escape:</strong> ⌃ + Tab simultáneos (cualquier capa)
+    &nbsp;·&nbsp; <strong>⎋ Escape:</strong> doble toque en el pulgar izquierdo interno
   </div>
 </div>
 
@@ -1183,7 +1183,8 @@ const T={
   'NUM|activo':'Capa 1 activa (mantén pulsada)',
   'SYM|activo':'Capa 2 activa (mantén pulsada)',
   'FN|activo':'Capa Fn activa (mantén pulsada)',
-  '␣|toca · FN↓':'Toca = ␣ Espacio\nMantener = Capa Fn (F-keys, capturas, bloqueo)',
+  '␣ /⎋|2×=ESC · FN↓':'Tap = ␣ Espacio · Doble tap = ⎋ Escape\nMantener = Capa Fn',
+  '␣|toca · FN↓':'Tap = ␣ Espacio\nMantener = Capa Fn (F-keys, capturas, bloqueo)',
   '↩|toca · FN↓':'Toca = ↩ Return\nMantener = Capa Fn',
   '▽':'Transparente · hereda la capa inferior',
   '🖱R|presionar':'Click derecho del mouse\n(presionar la perilla)',
