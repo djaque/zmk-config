@@ -416,7 +416,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       </div>
       <div class="row">
         <div class="k k-e">▽</div>
-        <div class="k k-y">BT<sub>Borrar Todo</sub></div>
+        <div class="k k-e">▽</div>
         <div class="k k-y">BT 0<sub>perfil 1</sub></div>
         <div class="k k-y">BT 1<sub>perfil 2</sub></div>
         <div class="k k-y">BT 2<sub>perfil 3</sub></div>
@@ -527,7 +527,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       </div>
       <div class="row">
         <div class="k k-e">▽</div>
-        <div class="k k-y">BT<sub>Limpiar</sub></div>
+        <div class="k k-e">▽</div>
         <div class="k k-o">🖱L<sub>click izq</sub></div>
         <div class="k k-o">🖱M<sub>click med</sub></div>
         <div class="k k-o">🖱R<sub>click der</sub></div>
@@ -622,7 +622,9 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
 <div class="panel" id="p3">
   <div class="desc">
     <strong>Capa de funciones y sistema.</strong> Teclas F1–F12, capturas de pantalla Mac, Print Screen, Scroll Lock, Pause, bootloader y reset.
-    <strong>⌘⇧4</strong> captura un área seleccionada · <strong>⌘⇧5</strong> abre la barra de herramientas de captura completa (con opciones de video).<br>
+    <strong>⌘⇧4</strong> captura área · <strong>⌘⇧5</strong> barra de capturas · <strong>⌘⌃Q</strong> bloquear pantalla.<br>
+    <strong>Combos Bluetooth</strong> (solo activos en esta capa):
+    <span style="color:#fbcfe8"> BT Limpiar perfil = <strong>O + P</strong> simultáneos · BT Borrar todo = <strong>O + P + ⌫</strong> simultáneos.</span><br>
     <span class="how-to">Activación: mantén el pulgar izquierdo interno <strong>[␣/FN]</strong> o el derecho interno <strong>[↩/FN]</strong> desde cualquier capa.</span>
   </div>
 
@@ -977,6 +979,8 @@ const T={
   '⌘⇧4|capturar área':'⌘⇧4 · Capturar área\nArrastra para seleccionar la zona',
   '⌘⇧5|herramienta':'⌘⇧5 · Barra de capturas\nÁrea · ventana · pantalla · grabación de video',
   '⌘⌃Q|bloquear':'⌘⌃Q · Bloquear pantalla\nLa sesión queda bloqueada de inmediato',
+  'BT|Limpiar perfil':'COMBO: O + P simultáneos\nElimina el perfil BT activo (solo en capa Fn)',
+  'BT|Borrar todo':'COMBO: O + P + ⌫ simultáneos\nElimina TODOS los perfiles BT guardados',
   'BOOT|loader':'Modo bootloader\nPara actualizar el firmware ZMK via USB',
   'RST|sys reset':'Reiniciar el teclado (soft reset)',
   '⎙|Print Scr':'Print Screen (Windows / Linux)',
