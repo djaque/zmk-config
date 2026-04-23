@@ -467,14 +467,15 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
   <div class="desc">
     <strong>Capa de números, volumen y navegación.</strong> Números en la fila superior (1–5 izquierda, 6–0 derecha).
     La <strong>perilla se convierte en control de volumen</strong> y su botón en Mute. El <strong>joystick pasa a flechas</strong> de cursor con Enter al centro.
-    Flechas también disponibles en el bloque derecho (HJKL). Gestión Bluetooth y RGB en la izquierda.<br>
+    Flechas también disponibles en el bloque derecho (HJKL). Gestión Bluetooth y RGB en la izquierda.
+    <strong>Atajos ⌘ directos:</strong> Tab=⌘⇥ · X=⌘X · C=⌘C · V=⌘V · Enter der.=⌘↩<br>
     <span class="how-to">Activación: mantén el pulgar central izquierdo <strong>[NUM]</strong>.</span>
   </div>
 
   <div class="kbd-wrap">
     <div class="half tl">
       <div class="row">
-        <div class="k k-e">▽</div>
+        <div class="k k-m">⌘⇥<sub>Cmd+Tab</sub></div>
         <div class="k k-d">1</div>
         <div class="k k-d">2</div>
         <div class="k k-d">3</div>
@@ -482,7 +483,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-d">5</div>
       </div>
       <div class="row">
-        <div class="k k-e">▽</div>
+        <div class="k k-y">RGB<sub>encender</sub></div>
         <div class="k k-e">▽</div>
         <div class="k k-y">BT 0<sub>perfil 1</sub></div>
         <div class="k k-y">BT 1<sub>perfil 2</sub></div>
@@ -490,11 +491,11 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-y">BT 3<sub>perfil 4</sub></div>
       </div>
       <div class="row">
-        <div class="k k-e">▽</div>
+        <div class="k k-n">⇟<sub>Pg Dn</sub></div>
         <div class="k k-y">RGB<sub>apagar</sub></div>
-        <div class="k k-y">RGB<sub>encender</sub></div>
-        <div class="k k-e">▽</div>
-        <div class="k k-e">▽</div>
+        <div class="k k-m">⌘X<sub>cortar</sub></div>
+        <div class="k k-m">⌘C<sub>copiar</sub></div>
+        <div class="k k-m">⌘V<sub>pegar</sub></div>
         <div class="k k-y">RGB<sub>efecto →</sub></div>
       </div>
       <div class="thumb-row">
@@ -561,7 +562,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-y">RGB<sub>brillo +</sub></div>
         <div class="k k-y">RGB<sub>brillo –</sub></div>
         <div class="k k-n">⤓<sub>End</sub></div>
-        <div class="k k-n">⇟<sub>Pg Dn</sub></div>
+        <div class="k k-m">⌘↩<sub>Cmd+Enter</sub></div>
       </div>
       <div class="thumb-row">
         <div class="k k-n tk">Ins<sub>Insert</sub></div>
@@ -922,9 +923,14 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       <span class="desc">Capa 1 · Fila 2 cols 5–6 (der.)</span>
     </div>
     <div class="mac-row">
-      <span class="lbl">⇞ Pg Up / ⇟ Pg Dn</span>
-      <span class="sym">⇞⇟</span>
-      <span class="desc">Capa 1 · Fila 2–3 extremo der.</span>
+      <span class="lbl">⇞ Pg Up</span>
+      <span class="sym">⇞</span>
+      <span class="desc">Capa 1 · Fila 2 extremo der.</span>
+    </div>
+    <div class="mac-row">
+      <span class="lbl">⇟ Pg Dn</span>
+      <span class="sym">⇟</span>
+      <span class="desc">Capa 1 · Ctrl (col izq. fila 3)</span>
     </div>
     <div class="mac-row">
       <span class="lbl">Ins / Insert</span>
@@ -1217,6 +1223,12 @@ const T={
   'BT 1|perfil 2':'Conectar al dispositivo Bluetooth 2',
   'BT 2|perfil 3':'Conectar al dispositivo Bluetooth 3',
   'BT 3|perfil 4':'Conectar al dispositivo Bluetooth 4',
+  '⌘⇥|Cmd+Tab':'⌘⇥ Cambiar aplicación\nMantén y sigue presionando Tab para ciclar',
+  '⌘X|cortar':'⌘X Cortar\n(equivale a mantén NUM + X)',
+  '⌘C|copiar':'⌘C Copiar\n(equivale a mantén NUM + C)',
+  '⌘V|pegar':'⌘V Pegar\n(equivale a mantén NUM + V)',
+  '⌘↩|Cmd+Enter':'⌘↩ Command + Return\nConfirmar en muchos diálogos de Mac',
+  '⇟|Pg Dn':'⇟ Página abajo',
   'RGB|apagar':'Apagar iluminación RGB',
   'RGB|encender':'Encender iluminación RGB',
   'RGB|efecto →':'Siguiente efecto de iluminación',
