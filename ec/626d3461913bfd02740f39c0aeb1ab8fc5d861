@@ -1,0 +1,24 @@
+config/eyelash_corne.keymap
+  s_f79be489fe2d9c::t_2c5560fd302397 98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "ec626d3461913bfd02740f39c0aeb1ab8fc5d861",
+  "prompts": {},
+  "humans": {
+    "h_6e52a5f51ff61e": {
+      "author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  },
+  "sessions": {
+    "s_f79be489fe2d9c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "42580d14-da77-450d-a358-cab1b9a7c44f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  }
+}
