@@ -1,0 +1,29 @@
+keymap-diagram.html
+  s_f79be489fe2d9c::t_f95eab22e90f91 870
+  s_f79be489fe2d9c::t_f3d5aee084ed82 860
+  s_f79be489fe2d9c::t_6dfc475420be9c 351
+  s_f79be489fe2d9c::t_4dba3f70d3f257 452
+config/eyelash_corne.keymap
+  s_f79be489fe2d9c::t_9a0630dee9b962 100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "d0af7afd779e7dc89358e80f87f1058ead52ff2b",
+  "prompts": {},
+  "humans": {
+    "h_6e52a5f51ff61e": {
+      "author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  },
+  "sessions": {
+    "s_f79be489fe2d9c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "42580d14-da77-450d-a358-cab1b9a7c44f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  }
+}
