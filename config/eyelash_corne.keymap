@@ -94,25 +94,25 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E      &kp R  &kp T                                 &mmv MOVE_UP                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&td0       &kp A  &kp S  &kp D      &kp F  &kp G               &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT        &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp LBKT
-&mt LGUI LCTRL  &kp Z  &kp X  &kp C      &kp V  &kp B  &mkp RCLK                   &mmv MOVE_DOWN                    &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
+&kp TAB    &kp Q  &kp W  &kp E      &kp R  &kp T                                 &kp UP                         &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
+&td0       &kp A  &kp S  &kp D      &kp F  &kp G               &kp LEFT        &kp ENTER  &kp RIGHT              &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp LBKT
+&mt LGUI LCTRL  &kp Z  &kp X  &kp C      &kp V  &kp B  &kp C_MUTE                  &kp DOWN                          &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
                           &kp LALT  &mo 1  &td_spc_esc                                                          &lt 3 SPACE  &mo 2  &kp LGUI
             >;
 
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp LG(TAB)  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                      &kp UP                        &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&rgb_ug RGB_ON  &trans           &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3              &kp LEFT        &kp ENTER       &kp RIGHT      &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&kp PG_DN      &rgb_ug RGB_OFF  &kp LG(X)       &kp LG(C)     &kp LG(V)     &rgb_ug RGB_EFF  &kp C_MUTE               &kp DOWN                       &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp LG(ENTER)
+&kp LG(TAB)  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                      &mmv MOVE_UP                  &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
+&rgb_ug RGB_ON  &trans           &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3              &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&kp PG_DN      &rgb_ug RGB_OFF  &kp LG(X)       &kp LG(C)     &kp LG(V)     &rgb_ug RGB_EFF  &mkp RCLK               &mmv MOVE_DOWN                  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp LG(ENTER)
                                          &trans        &trans        &trans                                                                    &kp INS          &kp DEL          &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         raise_layer {
