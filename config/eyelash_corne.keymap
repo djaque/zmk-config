@@ -155,7 +155,7 @@
             display-name = "NUMBER";
             bindings = <
 &kp LG(TAB)  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                      &mmv MOVE_UP                  &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&rgb_ug RGB_ON  &trans           &trans          &trans        &trans        &trans                    &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
+&rgb_ug RGB_ON  &trans           &trans          &trans        &trans        &tog 4                    &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
 &kp PG_DN      &rgb_ug RGB_OFF  &kp LG(X)       &kp LG(C)     &kp LG(V)     &rgb_ug RGB_EFF  &mkp RCLK               &mmv MOVE_DOWN                  &mm_bt0          &mm_bt1          &mm_bt2          &mm_bt3          &kp END   &kp LG(ENTER)
                                          &trans        &trans        &trans                                                                    &kp INS          &kp DEL          &trans
             >;
@@ -182,6 +182,18 @@
 &kp LG(LS(N4))  &trans      &mkp LCLK  &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
 &kp LG(LS(N5))  &sys_reset  &trans     &bootloader  &trans     &mkp MB5  &kp C_MUTE                    &mmv MOVE_DOWN                   &kp LG(LC(Q))  &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
                                        &trans       &trans     &trans                                                                   &trans       &trans     &trans
+            >;
+
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        numpad_layer {
+            display-name = "NUMPAD";
+            bindings = <
+&tog 4  &trans  &trans  &trans  &trans  &trans                                  &trans                    &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_DIVIDE    &kp KP_MULTIPLY  &kp BSPC
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans                             &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS      &kp KP_MINUS     &kp KP_ENTER
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                    &trans                           &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT       &kp EQUAL        &kp KP_ENTER
+                                &trans  &trans  &trans                                                      &kp KP_N0  &kp KP_DOT &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;

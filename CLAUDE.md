@@ -48,6 +48,7 @@ keymap-diagram.html      # Diagrama interactivo de capas (referencia visual)
 | 1 | NUMBER | Números, flechas, Bluetooth, atajos Cmd, RGB |
 | 2 | SYMBOL | Símbolos, mouse buttons, output USB/BLE |
 | 3 | Fn | F1–F12, bootloader, capturas de pantalla, sys_reset |
+| 4 | NUMPAD | Teclado numérico (lado derecho) — toggle desde NUMBER+G |
 
 ### Thumb cluster (fila inferior, 6 teclas)
 

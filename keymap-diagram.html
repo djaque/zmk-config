@@ -56,6 +56,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
 .tab:nth-child(2) .badge { background: #0284c7; color: #fff; }
 .tab:nth-child(3) .badge { background: #d97706; color: #fff; }
 .tab:nth-child(4) .badge { background: #9333ea; color: #fff; }
+.tab:nth-child(5) .badge { background: #10b981; color: #fff; }
 
 /* Panel */
 .panel { display: none; background: #1e293b; border: 1px solid #4f46e5; border-radius: 0 8px 8px 8px; padding: 20px; }
@@ -326,7 +327,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
   <p class="tagline">
     <span class="tag">42 teclas</span>
     <span class="tag">Split ergonómico</span>
-    <span class="tag">4 capas</span>
+    <span class="tag">5 capas</span>
     <span class="tag">Encoder + Joystick 5 vías</span>
     <span class="tag">NKRO</span>
   </p>
@@ -337,6 +338,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
   <button class="tab"       onclick="show(1)"><span class="badge">1</span>NUMBER</button>
   <button class="tab"       onclick="show(2)"><span class="badge">2</span>SYMBOL</button>
   <button class="tab"       onclick="show(3)"><span class="badge">3</span>Fn</button>
+  <button class="tab"       onclick="show(4)"><span class="badge">4</span>NUMPAD</button>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -489,7 +491,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-e">▽</div>
         <div class="k k-e">▽</div>
         <div class="k k-e">▽</div>
-        <div class="k k-e">▽</div>
+        <div class="k k-l">NPD<sub>toggle</sub></div>
       </div>
       <div class="row">
         <div class="k k-n">⇟<sub>Pg Dn</sub></div>
@@ -796,6 +798,121 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-e tk">▽</div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYER 4 — NUMPAD
+     ═══════════════════════════════════════════════════════════ -->
+<div class="panel" id="p4">
+  <div class="desc">
+    <strong>Teclado numérico tipo matriz.</strong> Lado derecho con disposición clásica de numpad: 7–8–9 / 4–5–6 / 1–2–3 / 0.
+    Operaciones matemáticas básicas: <strong>÷ × + − =</strong> y punto decimal.
+    El lado izquierdo es transparente — las teclas caen a QWERTY (joystick = flechas, perilla = volumen).<br>
+    <span class="how-to">Activar: <strong>NUM + G</strong> (toggle — queda bloqueado). Desactivar: presiona la tecla <strong>[NPD]</strong> en la esquina superior izquierda.</span>
+  </div>
+
+  <div class="kbd-wrap">
+    <div class="half tl">
+      <div class="row">
+        <div class="k k-l">NPD<sub>salir</sub></div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+      </div>
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+      </div>
+      <div class="row">
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+        <div class="k k-e">▽</div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-e tk">▽</div>
+        <div class="k k-e tk">▽</div>
+        <div class="k k-e tk">▽</div>
+      </div>
+    </div>
+
+    <div class="center">
+      <div class="center-part">
+        <div class="center-label">Perilla</div>
+        <div class="knob-outer">
+          <div class="knob-dot"></div>
+          <div class="knob-inner">🔊</div>
+        </div>
+        <div class="knob-arrows">
+          <span><span class="arr">◄</span><span>Vol–</span></span>
+          <span><span class="arr">►</span><span>Vol+</span></span>
+        </div>
+        <div class="k k-e enc-btn" style="font-size:.62rem;">▽<sub>heredado</sub></div>
+      </div>
+      <div class="center-inner-sep"></div>
+      <div class="center-part">
+        <div class="center-label">Joystick</div>
+        <div class="joy">
+          <div class="joy-blank"></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">↑</div>
+          <div class="joy-blank"></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">←</div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:.7rem;">↩<sub>Enter</sub></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">→</div>
+          <div class="joy-blank"></div>
+          <div class="k k-n" style="width:38px;height:38px;font-size:1.1rem;">↓</div>
+          <div class="joy-blank"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="half tr">
+      <div class="row">
+        <div class="k k-d">7</div>
+        <div class="k k-d">8</div>
+        <div class="k k-d">9</div>
+        <div class="k k-s">÷<sub>KP /</sub></div>
+        <div class="k k-s">×<sub>KP *</sub></div>
+        <div class="k k-m">⌫</div>
+      </div>
+      <div class="row">
+        <div class="k k-d">4</div>
+        <div class="k k-d">5</div>
+        <div class="k k-d">6</div>
+        <div class="k k-s">+<sub>KP +</sub></div>
+        <div class="k k-s">−<sub>KP –</sub></div>
+        <div class="k k-m">↩<sub>KP Enter</sub></div>
+      </div>
+      <div class="row">
+        <div class="k k-d">1</div>
+        <div class="k k-d">2</div>
+        <div class="k k-d">3</div>
+        <div class="k k-s">.<sub>decimal</sub></div>
+        <div class="k k-s">=</div>
+        <div class="k k-m">↩<sub>KP Enter</sub></div>
+      </div>
+      <div class="thumb-row">
+        <div class="k k-d tk">0</div>
+        <div class="k k-s tk">.<sub>decimal</sub></div>
+        <div class="k k-e tk">▽</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="combo-note">
+    <strong>Activar:</strong> NUM + G (toggle). <strong>Salir:</strong> tecla NPD (esquina sup. izq.).
+    &nbsp;·&nbsp; Los KP Enter (×2) permiten confirmar con cualquier dedo de la mano derecha.
   </div>
 </div>
 
@@ -1286,6 +1403,14 @@ const T={
   '}':'} Llave que cierra',
   '|':'| Barra vertical (pipe)',
   '~':'~ Virgulilla',
+  'NPD|toggle':'Activar / desactivar capa NUMPAD (toggle)\nNUM + G desde capa NUMBER',
+  'NPD|salir':'Desactivar capa NUMPAD\n(mismo toggle que activó)',
+  '÷|KP /':'÷ División (KP Divide)',
+  '×|KP *':'× Multiplicación (KP Multiply)',
+  '+|KP +':'+ Suma (KP Plus)',
+  '−|KP –':'− Resta (KP Minus)',
+  '.|decimal':'· Punto decimal',
+  '↩|KP Enter':'↩ Confirmar (KP Enter)',
   ',':'Coma',
   '.':'Punto',
   '/':'/ Barra diagonal (slash)',
