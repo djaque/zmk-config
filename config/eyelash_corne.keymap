@@ -45,6 +45,26 @@
             #binding-cells = <0>;
             bindings = <&kp RA(N) &kp LS(N)>;
         };
+        bt_sel0: bt_sel0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &rgb_ug RGB_COLOR_HSB(240,100,50)>;
+        };
+        bt_sel1: bt_sel1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &rgb_ug RGB_COLOR_HSB(120,100,45)>;
+        };
+        bt_sel2: bt_sel2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2 &rgb_ug RGB_COLOR_HSB(25,100,50)>;
+        };
+        bt_sel3: bt_sel3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3 &rgb_ug RGB_COLOR_HSB(280,100,50)>;
+        };
         bt_clr0: bt_clr0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -92,25 +112,25 @@
         mm_bt0: mm_bt0 {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0>, <&bt_clr0>;
+            bindings = <&bt_sel0>, <&bt_clr0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         mm_bt1: mm_bt1 {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1>, <&bt_clr1>;
+            bindings = <&bt_sel1>, <&bt_clr1>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         mm_bt2: mm_bt2 {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2>, <&bt_clr2>;
+            bindings = <&bt_sel2>, <&bt_clr2>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         mm_bt3: mm_bt3 {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 3>, <&bt_clr3>;
+            bindings = <&bt_sel3>, <&bt_clr3>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
