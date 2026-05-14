@@ -1,0 +1,35 @@
+config/eyelash_corne.keymap
+  s_f79be489fe2d9c::t_eb38dc111657b6 85-91
+  s_f79be489fe2d9c::t_2344a29d97ebef 38-47
+  s_f79be489fe2d9c::t_6c9b7c5ab41aea 163
+CLAUDE.md
+  s_f79be489fe2d9c::t_c6936d74360364 160-162
+keymap-diagram.html
+  s_f79be489fe2d9c::t_fb95a88c565902 1300
+  s_f79be489fe2d9c::t_22387a88b4bd65 1301
+  s_f79be489fe2d9c::t_3b60127403119f 441
+  s_f79be489fe2d9c::t_eccfe2e94c1915 349-350
+  s_f79be489fe2d9c::t_ac11e2d3a2d294 440
+  s_f79be489fe2d9c::t_9789b9493b74fc 461
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "58b05cd2e06e5eead936ca47091bc3307d5491bb",
+  "prompts": {},
+  "humans": {
+    "h_6e52a5f51ff61e": {
+      "author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  },
+  "sessions": {
+    "s_f79be489fe2d9c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "42580d14-da77-450d-a358-cab1b9a7c44f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  }
+}
