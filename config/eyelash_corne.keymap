@@ -34,6 +34,29 @@
 };
 
 / {
+    macros {
+        bt_clr0: bt_clr0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &bt BT_CLR>;
+        };
+        bt_clr1: bt_clr1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &bt BT_CLR>;
+        };
+        bt_clr2: bt_clr2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2 &bt BT_CLR>;
+        };
+        bt_clr3: bt_clr3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3 &bt BT_CLR>;
+        };
+    };
+
     behaviors {
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
@@ -47,6 +70,31 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&lt 3 SPACE>, <&kp ESC>;
+        };
+
+        mm_bt0: mm_bt0 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>, <&bt_clr0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        mm_bt1: mm_bt1 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&bt_clr1>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        mm_bt2: mm_bt2 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&bt_clr2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        mm_bt3: mm_bt3 {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>, <&bt_clr3>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -108,7 +156,7 @@
             bindings = <
 &kp LG(TAB)  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                      &mmv MOVE_UP                  &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
 &rgb_ug RGB_ON  &trans           &trans          &trans        &trans        &trans                    &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&kp PG_DN      &rgb_ug RGB_OFF  &kp LG(X)       &kp LG(C)     &kp LG(V)     &rgb_ug RGB_EFF  &mkp RCLK               &mmv MOVE_DOWN                  &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &kp END   &kp LG(ENTER)
+&kp PG_DN      &rgb_ug RGB_OFF  &kp LG(X)       &kp LG(C)     &kp LG(V)     &rgb_ug RGB_EFF  &mkp RCLK               &mmv MOVE_DOWN                  &mm_bt0          &mm_bt1          &mm_bt2          &mm_bt3          &kp END   &kp LG(ENTER)
                                          &trans        &trans        &trans                                                                    &kp INS          &kp DEL          &trans
             >;
 
