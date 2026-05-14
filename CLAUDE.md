@@ -157,7 +157,9 @@ El objetivo es poder leer el diagrama sin necesidad de memorizar qué produce ca
 
 ## Decisiones de diseño y contexto
 
-- **ES Latino en macOS**: `LBKT` (dead acute ´) facilita tildes (á é í ó ú) — reemplaza la posición de comilla simple.
+- **macOS layout: US con ABC Extended**: el teclado físico usa layout US en macOS. ABC Extended provee dead keys vía Option: `RA(E)` = dead acute para tildes, `RA(N)` = dead tilde para ñ. Los símbolos `@ # {} []` funcionan directamente en el SYMBOL layer sin ajustes de layout del SO.
+- **ñ/Ñ**: macro mod-morph en la posición de `;` — tap = ñ (envía `RA(N)+N`), hold Shift = Ñ (envía `RA(N)+LS(N)`).
+- **Dead acute tildes**: posición LBKT envía `RA(E)` (ABC Extended), luego la vocal produce á é í ó ú.
 - **BT_CLR en combos**: fue movido desde la home row porque se activaba accidentalmente. Ahora requiere capa Fn + dos teclas simultáneas.
 - **`CONFIG_ZMK_OUTPUT_DEFAULT` eliminado**: no está definido en ZMK v0.3 y aborta el build si se incluye.
 - **`ZMK_EXT_POWER` deshabilitado → revertido**: intentar deshabilitar EXT_POWER rompe el linker en esta placa; se dejó el comportamiento por defecto.

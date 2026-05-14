@@ -35,6 +35,16 @@
 
 / {
     macros {
+        macro_ñ: macro_ñ {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(N) &kp N>;
+        };
+        macro_Ñ: macro_Ñ {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(N) &kp LS(N)>;
+        };
         bt_clr0: bt_clr0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -70,6 +80,13 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&lt 3 SPACE>, <&kp ESC>;
+        };
+
+        mm_ñ: mm_ñ {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&macro_ñ>, <&macro_Ñ>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         mm_bt0: mm_bt0 {
@@ -143,7 +160,7 @@
             display-name = "QWERTY";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E      &kp R  &kp T                                 &kp UP                         &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&td0       &kp A  &kp S  &kp D      &kp F  &kp G               &kp LEFT        &kp ENTER  &kp RIGHT              &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp LBKT
+&td0       &kp A  &kp S  &kp D      &kp F  &kp G               &kp LEFT        &kp ENTER  &kp RIGHT              &kp H        &kp J  &kp K      &kp L    &mm_ñ     &kp RA(E)
 &kp LCTRL  &kp Z  &kp X  &kp C      &kp V  &kp B  &kp C_MUTE                  &kp DOWN                          &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
                           &mt LGUI LALT  &mo 1  &td_spc_esc                                                          &lt 3 SPACE  &mo 2  &mt LALT LGUI
             >;

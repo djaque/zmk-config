@@ -346,8 +346,8 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
      ═══════════════════════════════════════════════════════════ -->
 <div class="panel on" id="p0">
   <div class="desc">
-    <strong>Capa base de escritura · Mac ES Latino.</strong> Letras del alfabeto con ñ en su posición natural (donde va ;).
-    La tecla <strong>´ (dead acute)</strong> permite tildes directas: ´+a=á, ´+e=é, etc.
+    <strong>Capa base de escritura · macOS con layout US (ABC Extended).</strong> Letras del alfabeto.
+    <strong>ñ/Ñ</strong> en la posición de `;` (tap = ñ, ⇧ = Ñ). La tecla <strong>´ (dead acute)</strong> usa Option+E de ABC Extended: ´+vocal = á é í ó ú.
     El <strong>Shift izquierdo</strong> hace doble función: un toque = ⇧, dos toques = CAPS LOCK.
     La <strong>perilla controla el volumen</strong> y el <strong>joystick mueve las flechas de cursor</strong>.<br>
     <span class="how-to">Pulgar izq. externo: tap=⌥ hold=⌘ · Pulgar izq. interno: tap=␣ doble tap=⎋ hold=FN · Pulgar der. interno: tap=␣ hold=FN · Pulgar der. externo: tap=⌘ hold=⌥ · ↩ Return = esquina inferior derecha.</span>
@@ -437,8 +437,8 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-a">J</div>
         <div class="k k-a">K</div>
         <div class="k k-a">L</div>
-        <div class="k k-a">ñ<sub>SEMI</sub></div>
-        <div class="k k-m">´<sub>dead acute</sub></div>
+        <div class="k k-a">ñ<sub>⇧=Ñ</sub></div>
+        <div class="k k-m">´<sub>⌥E · tildes</sub></div>
       </div>
       <div class="row">
         <div class="k k-a">N</div>
@@ -458,7 +458,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
 
   <div class="combo-note">
     <strong>Combo Soft-Off:</strong> Q + S + Z simultáneos → apaga el teclado inalámbrico.
-    &nbsp;·&nbsp; <strong>´ dead acute:</strong> presiona ´ y luego una vocal → á é í ó ú ü
+    &nbsp;·&nbsp; <strong>Tildes (ABC Extended):</strong> presiona ´ (⌥E) y luego vocal → á é í ó ú · ñ tiene tecla dedicada (⇧=Ñ)
     &nbsp;·&nbsp; <strong>⎋ Escape:</strong> doble toque en el pulgar izquierdo interno
   </div>
 </div>
@@ -1297,8 +1297,8 @@ const T={
   '⇥':'Tabular · cambiar foco entre campos',
   '⇧|2×=CAPS':'Shift · doble toque = Bloq. Mayús',
   '⌃|Control':'⌃ Control (Mac)',
-  'ñ|SEMI':'ñ / Ñ (con Shift) · posición natural en ES Latino',
-  '´|dead acute':'Dead Acute\nPresiona ´ y luego una vocal:\n´+a=á · ´+e=é · ´+i=í · ´+o=ó · ´+u=ú',
+  'ñ|⇧=Ñ':'ñ (tap) · Ñ (con Shift)\nMacro: ⌥N + N / ⌥N + ⇧N en ABC Extended',
+  '´|⌥E · tildes':'Dead Acute (ABC Extended: ⌥+E)\nPresiona ´ y luego una vocal:\n´+a=á · ´+e=é · ´+i=í · ´+o=ó · ´+u=ú',
   '⌫|Delete':'⌫ Borrar hacia atrás (Backspace)',
   '⎋|Escape':'⎋ Escape · cancelar, salir de modos',
   '⌥|Option':'⌥ Option (Alt) en ES Latino:\n@=⌥Q · #=⌥3 · €=⌥E · ~=⌥N',
