@@ -1,0 +1,26 @@
+IDEAS.md
+  h_6e52a5f51ff61e 5
+  s_f79be489fe2d9c::t_9b3c0c61b9339e 1-4,14-16
+  s_f79be489fe2d9c::t_1057d9bd83b075 6-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "2da5a24f5d785a849c2f91d6f0aff6d7a7e0e09a",
+  "prompts": {},
+  "humans": {
+    "h_6e52a5f51ff61e": {
+      "author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  },
+  "sessions": {
+    "s_f79be489fe2d9c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "42580d14-da77-450d-a358-cab1b9a7c44f",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  }
+}
