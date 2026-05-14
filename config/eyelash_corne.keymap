@@ -96,7 +96,7 @@
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E      &kp R  &kp T                                 &mmv MOVE_UP                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &td0       &kp A  &kp S  &kp D      &kp F  &kp G               &mmv MOVE_LEFT  &mkp LCLK  &mmv MOVE_RIGHT        &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp LBKT
-&kp LCTRL  &kp Z  &kp X  &kp C      &kp V  &kp B  &mkp RCLK                   &mmv MOVE_DOWN                    &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
+&mt LGUI LCTRL  &kp Z  &kp X  &kp C      &kp V  &kp B  &mkp RCLK                   &mmv MOVE_DOWN                    &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
                           &kp LALT  &mo 1  &td_spc_esc                                                          &lt 3 SPACE  &mo 2  &kp LGUI
             >;
 
