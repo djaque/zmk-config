@@ -95,7 +95,7 @@
         mm_dead: mm_dead {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RA(E)>, <&kp RA(GRAVE)>;
+            bindings = <&kp NON_US_HASH>, <&kp LBKT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
