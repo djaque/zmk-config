@@ -1,0 +1,46 @@
+config/eyelash_corne.keymap
+  s_8ded25fe5acbcf::t_883041d834be65 202-203
+  s_8ded25fe5acbcf::t_fce301d0235964 166
+  s_8ded25fe5acbcf::t_a5f9b6048475c6 190-191
+keymap-diagram.html
+  s_8ded25fe5acbcf::t_7bc35e71aa50f0 791
+  s_8ded25fe5acbcf::t_cba694a497d5c3 1113-1115
+  s_8ded25fe5acbcf::t_683232a5249c3f 748-751
+  s_8ded25fe5acbcf::t_a1c18cc9d3f544 493
+  s_8ded25fe5acbcf::t_4a900cd4878682 381-382
+  s_8ded25fe5acbcf::t_0589ad2cd20c82 634-637
+  s_8ded25fe5acbcf::t_72191260d0377a 645
+  s_8ded25fe5acbcf::t_7a61ba27d16b51 814-816
+  s_8ded25fe5acbcf::t_41db5b4c00928d 759
+  s_8ded25fe5acbcf::t_ee5b56a4bc9cd3 618
+  s_8ded25fe5acbcf::t_6319d28b2ef9b7 813
+  s_8ded25fe5acbcf::t_dfc1286d1971e1 473
+  s_8ded25fe5acbcf::t_d2c60df12a3e1b 1333-1334
+CLAUDE.md
+  s_8ded25fe5acbcf::t_915d85d469cf5a 49
+  s_8ded25fe5acbcf::t_deb1c814bbdd27 162-165
+  s_8ded25fe5acbcf::t_1c9c09361b9c08 123-124
+.gitignore
+  h_6e52a5f51ff61e 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "32449d5c629812d4333a128e6d9a99d3190bca99",
+  "prompts": {},
+  "humans": {
+    "h_6e52a5f51ff61e": {
+      "author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  },
+  "sessions": {
+    "s_8ded25fe5acbcf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b39fdfc3-cac5-44b1-9f3d-1d9f874532f8",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Dany Obed Patricio Jaque Herrera <dany.jaque@mercadolibre.cl>"
+    }
+  }
+}
