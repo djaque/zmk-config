@@ -46,7 +46,7 @@ keymap-diagram.html      # Diagrama interactivo de capas (referencia visual)
 |---|---|---|
 | 0 | QWERTY | Capa base — layout ES Latino para macOS |
 | 1 | NUMBER | Números, flechas, Bluetooth, atajos Cmd, RGB |
-| 2 | SYMBOL | Símbolos, mouse buttons, output USB/BLE |
+| 2 | SYMBOL | Símbolos, mouse (joystick/encoder), output USB/BLE |
 | 3 | Fn | F1–F12, bootloader, capturas de pantalla, sys_reset |
 | 4 | NUMPAD | Teclado numérico (lado derecho) — toggle desde NUMBER+G |
 
@@ -120,6 +120,8 @@ td_spc_esc: td_spc_esc { compatible = "zmk,behavior-tap-dance"; tapping-term-ms 
 
 // Layer-tap global: 280ms tapping-term, 175ms quick-tap
 &lt { tapping-term-ms = <280>; quick-tap-ms = <175>; }
+
+// mm_bt0–mm_bt3: mod-morph para seleccionar/limpiar perfiles BT con Shift
 ```
 
 ---
@@ -157,9 +159,10 @@ El objetivo es poder leer el diagrama sin necesidad de memorizar qué produce ca
 
 ## Decisiones de diseño y contexto
 
-- **macOS layout: US con ABC Extended**: el teclado físico usa layout US en macOS. ABC Extended provee dead keys vía Option: `RA(E)` = dead acute para tildes, `RA(N)` = dead tilde para ñ. Los símbolos `@ # {} []` funcionan directamente en el SYMBOL layer sin ajustes de layout del SO.
-- **ñ/Ñ**: macro mod-morph en la posición de `;` — tap = ñ (envía `RA(N)+N`), hold Shift = Ñ (envía `RA(N)+LS(N)`).
-- **Dead acute tildes**: posición LBKT envía `RA(E)` (ABC Extended), luego la vocal produce á é í ó ú.
+- **macOS layout: Español Latinoamérica**: el teclado físico usa layout Español Latinoamérica en macOS. El SO mapea `SEMI` → ñ/Ñ y provee dead keys nativamente para tildes (á é í ó ú). No se requieren macros en ZMK para estos caracteres.
+- **ñ/Ñ**: `&kp SEMI` en la última posición de la home row derecha — el layout Español Latinoamérica del SO produce ñ/Ñ directamente.
+- **Tildes**: las dead keys (á é í ó ú) son provistas por el layout del SO; no se implementan en ZMK.
+- **SQT (apóstrofo)**: última tecla de la home row derecha (columna 6) — envía `SQT`; el SO lo interpreta según el layout activo.
 - **BT_CLR en combos**: fue movido desde la home row porque se activaba accidentalmente. Ahora requiere capa Fn + dos teclas simultáneas.
 - **`CONFIG_ZMK_OUTPUT_DEFAULT` eliminado**: no está definido en ZMK v0.3 y aborta el build si se incluye.
 - **`ZMK_EXT_POWER` deshabilitado → revertido**: intentar deshabilitar EXT_POWER rompe el linker en esta placa; se dejó el comportamiento por defecto.

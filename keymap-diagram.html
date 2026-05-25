@@ -378,8 +378,8 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
      ═══════════════════════════════════════════════════════════ -->
 <div class="panel on" id="p0">
   <div class="desc">
-    <strong>Capa base de escritura · macOS con layout US (ABC Extended).</strong> Letras del alfabeto.
-    <strong>ñ/Ñ</strong> en la posición de `;` (tap = ñ, ⇧ = Ñ). La tecla <strong>´ (dead acute)</strong> usa Option+E de ABC Extended: ´+vocal = á é í ó ú.
+    <strong>Capa base de escritura · macOS con layout Español Latinoamérica.</strong> Letras del alfabeto.
+    <strong>ñ/Ñ</strong> en la posición de `;` (el SO mapea SEMI → ñ/Ñ directamente). Las <strong>tildes</strong> (á é í ó ú) se escriben con las dead keys del layout del SO.
     El <strong>Shift izquierdo</strong> hace doble función: un toque = ⇧, dos toques = CAPS LOCK.
     La <strong>perilla controla el volumen</strong> y el <strong>joystick mueve las flechas de cursor</strong>.<br>
     <span class="how-to">Pulgar izq. externo: tap=⌥ hold=⌘ · Pulgar izq. interno: tap=␣ doble tap=⎋ hold=FN · Pulgar der. interno: tap=␣ hold=FN · Pulgar der. externo: tap=⌘ hold=⌥ · ↩ Return = esquina inferior derecha.</span>
@@ -470,7 +470,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-a">K</div>
         <div class="k k-a">L</div>
         <div class="k k-a">ñ<sub>⇧=Ñ</sub></div>
-        <div class="k k-m">´<sub>⌥E · tildes</sub></div>
+        <div class="k k-a">'<sub>apóstrofo</sub></div>
       </div>
       <div class="row">
         <div class="k k-a">N</div>
@@ -490,7 +490,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
 
   <div class="combo-note">
     <strong>Combo Soft-Off:</strong> Q + S + Z simultáneos → apaga el teclado inalámbrico.
-    &nbsp;·&nbsp; <strong>Tildes (ABC Extended):</strong> presiona ´ (⌥E) y luego vocal → á é í ó ú · ñ tiene tecla dedicada (⇧=Ñ)
+    &nbsp;·&nbsp; <strong>Tildes:</strong> usa las dead keys del layout Español Latinoamérica del SO (´ + vocal = á é í ó ú) · ñ está en la tecla `;` (⇧=Ñ)
     &nbsp;·&nbsp; <strong>⎋ Escape:</strong> doble toque en el pulgar izquierdo interno
   </div>
 </div>
@@ -615,7 +615,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
   <div class="desc">
     <strong>Capa de símbolos y puntuación.</strong> Todos los símbolos frecuentes en programación distribuidos ergonómicamente.
     Mano izquierda: símbolos de apertura (!, @, #, $, %). Mano derecha: operadores y delimitadores (-, =, [ ], { }, \ ` | ~).<br>
-    <span class="how-to">Activación: mantén el pulgar central derecho <strong>[SYM]</strong>. También da acceso a mouse y cambio de salida USB/BLE.</span>
+    <span class="how-to">Activación: mantén el pulgar central derecho <strong>[SYM]</strong>. Da acceso al cambio de salida USB/BLE. El joystick sigue funcionando como mouse.</span>
   </div>
 
   <div class="kbd-wrap">
@@ -631,10 +631,10 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       <div class="row">
         <div class="k k-e">▽</div>
         <div class="k k-e">▽</div>
-        <div class="k k-o">🖱L<sub>click izq</sub></div>
-        <div class="k k-o">🖱M<sub>click med</sub></div>
-        <div class="k k-o">🖱R<sub>click der</sub></div>
-        <div class="k k-o">🖱B4<sub>botón 4</sub></div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
       </div>
       <div class="row">
         <div class="k k-e">▽</div>
@@ -642,7 +642,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-y">BLE<sub>salida</sub></div>
         <div class="k k-e">—</div>
         <div class="k k-e">—</div>
-        <div class="k k-o">🖱B5<sub>botón 5</sub></div>
+        <div class="k k-e">—</div>
       </div>
       <div class="thumb-row">
         <div class="k k-e tk">▽</div>
@@ -745,10 +745,10 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       <div class="row">
         <div class="k k-y" style="font-size:.6rem;">⌘⇧4<sub>capturar área</sub></div>
         <div class="k k-e">▽</div>
-        <div class="k k-o">🖱L</div>
-        <div class="k k-o">🖱M</div>
-        <div class="k k-o">🖱R</div>
-        <div class="k k-o">🖱B4</div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
       </div>
       <div class="row">
         <div class="k k-y" style="font-size:.6rem;">⌘⇧5<sub>herramienta</sub></div>
@@ -756,7 +756,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-e">▽</div>
         <div class="k k-y">BOOT<sub>loader</sub></div>
         <div class="k k-e">▽</div>
-        <div class="k k-o">🖱B5</div>
+        <div class="k k-e">—</div>
       </div>
       <div class="thumb-row">
         <div class="k k-e tk">▽</div>
@@ -788,7 +788,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
           <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↑</div>
           <div class="joy-blank"></div>
           <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱←</div>
-          <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱<sub>click L</sub></div>
+          <div class="k k-e" style="width:38px;height:38px;font-size:.65rem;">▽</div>
           <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱→</div>
           <div class="joy-blank"></div>
           <div class="k k-o" style="width:38px;height:38px;font-size:.65rem;">🖱↓</div>
@@ -810,9 +810,10 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       </div>
       <div class="row">
         <div class="k k-y">BOOT<sub>loader</sub></div>
-        <div class="k k-o">🖱L</div>
-        <div class="k k-o">🖱M</div>
-        <div class="k k-o">🖱R</div>
+
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
+        <div class="k k-e">—</div>
         <div class="k k-y">⎙<sub>Print Scr</sub></div>
         <div class="k k-f">F12</div>
       </div>
@@ -1109,9 +1110,9 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       <span class="desc">Joystick mueve cursor · centro = click izq.</span>
     </div>
     <div class="mac-row">
-      <span class="lbl">´ Dead acute (capa 0)</span>
-      <span class="sym">´</span>
-      <span class="desc">Pulgar der. home row · luego vocal = tilde</span>
+      <span class="lbl">' Apóstrofo (capa 0)</span>
+      <span class="sym">'</span>
+      <span class="desc">Última columna home row derecha (SQT) · en Español Latinoamérica el SO interpreta el símbolo</span>
     </div>
     <div class="mac-row">
       <span class="lbl">🖱 Mouse</span>
@@ -1329,8 +1330,8 @@ const T={
   '⇥':'Tabular · cambiar foco entre campos',
   '⇧|2×=CAPS':'Shift · doble toque = Bloq. Mayús',
   '⌃|Control':'⌃ Control (Mac)',
-  'ñ|⇧=Ñ':'ñ (tap) · Ñ (con Shift)\nMacro: ⌥N + N / ⌥N + ⇧N en ABC Extended',
-  '´|⌥E · tildes':'Dead Acute (ABC Extended: ⌥+E)\nPresiona ´ y luego una vocal:\n´+a=á · ´+e=é · ´+i=í · ´+o=ó · ´+u=ú',
+  'ñ|⇧=Ñ':'ñ (tap) · Ñ (con Shift)\nLayout Español Latinoamérica: SEMI → ñ/Ñ (el SO lo maneja)',
+  "'|apóstrofo": "Apóstrofo / comilla simple (SQT)\nEn Español Latinoamérica el SO interpreta este código",
   '⌫|Delete':'⌫ Borrar hacia atrás (Backspace)',
   '⎋|Escape':'⎋ Escape · cancelar, salir de modos',
   '⌥|Option':'⌥ Option (Alt) en ES Latino:\n@=⌥Q · #=⌥3 · €=⌥E · ~=⌥N',
