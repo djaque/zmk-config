@@ -34,7 +34,7 @@ keymap-diagram.html      # Diagrama interactivo de capas (referencia visual)
 ## Versiones fijadas
 
 - **ZMK**: `v0.3.0` (pinned en `west.yml` y en el workflow `@v0.3`)
-- **Módulo eyelash_corne**: rama `main` del repo `a741725193/zmk-new_corne`
+- **Módulo eyelash_corne**: commit `a7d9308` del repo `a741725193/zmk-new_corne`, fijado en `config/west.yml` por compatibilidad con ZMK `v0.3.0`
 
 > No actualizar ZMK a main/nightly sin verificar compatibilidad del módulo. Cambios de API en ZMK nightly pueden romper la build.
 
