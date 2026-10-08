@@ -382,7 +382,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
     <strong>ñ/Ñ</strong> en la posición de `;` (el SO mapea SEMI → ñ/Ñ directamente). Las <strong>tildes</strong> (á é í ó ú) se escriben con las dead keys del layout del SO.
     El <strong>Shift izquierdo</strong> hace doble función: un toque = ⇧, dos toques = CAPS LOCK.
     La <strong>perilla controla el volumen</strong> y el <strong>joystick mueve las flechas de cursor</strong>.<br>
-    <span class="how-to">Pulgar izq. externo: tap=⌥ hold=⌘ · Pulgar izq. interno: tap=␣ doble tap=⎋ hold=FN · Pulgar der. interno: tap=␣ hold=FN · Pulgar der. externo: tap=⌘ hold=⌥ · ↩ Return = esquina inferior derecha.</span>
+    <span class="how-to">Pulgar izq. externo = ⌘ Command · Pulgar izq. interno: tap=␣ doble tap=⎋ hold=FN · Pulgar der. interno: tap=␣ hold=FN · Pulgar der. externo = ⌥ Option · ↩ Return = esquina inferior derecha.</span>
   </div>
 
   <div class="kbd-wrap">
@@ -413,7 +413,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-a">B</div>
       </div>
       <div class="thumb-row">
-        <div class="k k-m tk">⌥/⌘<sub>tap=⌥ hold=⌘</sub></div>
+        <div class="k k-m tk">⌘<sub>Command</sub></div>
         <div class="k k-l tk">NUM<sub>mantén</sub></div>
         <div class="k k-l tk">␣ /⎋<sub>2×=ESC · FN↓</sub></div>
       </div>
@@ -483,7 +483,7 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       <div class="thumb-row">
         <div class="k k-l tk">␣<sub>toca · FN↓</sub></div>
         <div class="k k-l tk">SYM<sub>mantén</sub></div>
-        <div class="k k-m tk">⌘/⌥<sub>tap=⌘ hold=⌥</sub></div>
+        <div class="k k-m tk">⌥<sub>Option</sub></div>
       </div>
     </div>
   </div>
@@ -633,8 +633,8 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
         <div class="k k-e">▽</div>
         <div class="k k-s">;<sub>⇧,</sub></div>
         <div class="k k-s">:<sub>⇧.</sub></div>
-        <div class="k k-s">&lt;<sub>⌥,</sub></div>
-        <div class="k k-s">&gt;<sub>⌥.</sub></div>
+        <div class="k k-s">&lt;<sub>grave</sub></div>
+        <div class="k k-s">&gt;<sub>⇧ grave</sub></div>
       </div>
       <div class="row">
         <div class="k k-e">▽</div>
@@ -727,8 +727,8 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
     <strong>Capa de funciones y sistema.</strong> Teclas F1–F10 y F12, capturas de pantalla Mac, Print Screen, Scroll Lock, Pause, bootloader y reset.
     La posición de ⌫ (esquina superior derecha) se convierte en <strong>⌦ Forward Delete</strong> en esta capa.
     <strong>⌘⇧4</strong> captura área · <strong>⌘⇧5</strong> barra de capturas · <strong>⌘⌃Q</strong> bloquear pantalla.<br>
-    <strong>Combos Bluetooth</strong> (solo activos en esta capa):
-    <span style="color:#fbcfe8"> BT Limpiar perfil = <strong>V + M</strong> simultáneos · BT Borrar todo = <strong>⌃ + V + M</strong> simultáneos.</span><br>
+    <strong>Bluetooth</strong> (con Fn):
+    <span style="color:#fbcfe8"><strong>J</strong> siguiente perfil · <strong>K</strong> perfil anterior · <strong>L</strong> borrar vínculo del perfil activo. BT Borrar todo = <strong>⌘⇧5 + V + M</strong> simultáneos.</span><br>
     <span class="how-to">Activación: mantén el pulgar izquierdo interno <strong>[␣/FN]</strong> o el derecho interno <strong>[↩/FN]</strong> desde cualquier capa.</span>
   </div>
 
@@ -810,10 +810,9 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
       </div>
       <div class="row">
         <div class="k k-y">BOOT<sub>loader</sub></div>
-
-        <div class="k k-e">—</div>
-        <div class="k k-e">—</div>
-        <div class="k k-e">—</div>
+        <div class="k k-y">NEXT<sub>perfil</sub></div>
+        <div class="k k-y">PREV<sub>perfil</sub></div>
+        <div class="k k-y">CLR<sub>activo</sub></div>
         <div class="k k-y">⎙<sub>Print Scr</sub></div>
         <div class="k k-f">F12</div>
       </div>
@@ -1007,17 +1006,12 @@ h1 { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
     <div class="mac-row">
       <span class="lbl">⌘ Command</span>
       <span class="sym">⌘</span>
-      <span class="desc">Tap pulgar der. externo · hold pulgar izq. externo</span>
+      <span class="desc">Pulgar izq. externo (capa 0)</span>
     </div>
     <div class="mac-row">
-      <span class="lbl">⌥ Option (izq.)</span>
+      <span class="lbl">⌥ Option</span>
       <span class="sym">⌥</span>
-      <span class="desc">Pulgar izq. externo — tap rápido (capa 0)</span>
-    </div>
-    <div class="mac-row">
-      <span class="lbl">⌥ Option (der.)</span>
-      <span class="sym">⌥</span>
-      <span class="desc">Hold pulgar der. externo (capa 0)</span>
+      <span class="desc">Pulgar der. externo (capa 0)</span>
     </div>
     <div class="mac-row">
       <span class="lbl">⌃ Control</span>
@@ -1180,7 +1174,7 @@ const activeKeys = new Map(); // code → elemento DOM
     'KeyZ':        {s:'l',r:2,c:1}, 'KeyX':{s:'l',r:2,c:2}, 'KeyC':{s:'l',r:2,c:3},
     'KeyV':        {s:'l',r:2,c:4}, 'KeyB':{s:'l',r:2,c:5},
     // Pulgares izquierdos
-    'AltLeft':     {s:'l',r:'t',c:0},
+    'MetaLeft':    {s:'l',r:'t',c:0}, 'MetaRight':{s:'l',r:'t',c:0},
     'Space':       {s:'l',r:'t',c:2},
 
     // ── Capa 0 QWERTY — lado derecho ──────────────────────
@@ -1196,8 +1190,7 @@ const activeKeys = new Map(); // code → elemento DOM
     'Slash':       {s:'r',r:2,c:4}, 'Escape':{s:'r',r:2,c:5},
     // Pulgares derechos
     'Enter':       {s:'r',r:'t',c:0},
-    'MetaLeft':    {s:'r',r:'t',c:2}, 'MetaRight':{s:'r',r:'t',c:2},
-    'AltRight':    {s:'r',r:'t',c:2}, // RALT = ⌘ en este layout
+    'AltLeft':     {s:'r',r:'t',c:2}, 'AltRight':{s:'r',r:'t',c:2},
 
     // ── Capa NUMBER — flechas y navegación (lado derecho) ─
     'ArrowLeft':   {s:'r',r:1,c:0},  // posición H
@@ -1395,8 +1388,10 @@ const T={
   '⌘⇧4|capturar área':'⌘⇧4 · Capturar área\nArrastra para seleccionar la zona',
   '⌘⇧5|herramienta':'⌘⇧5 · Barra de capturas\nÁrea · ventana · pantalla · grabación de video',
   '⌘⌃Q|bloquear':'⌘⌃Q · Bloquear pantalla\nLa sesión queda bloqueada de inmediato',
-  'BT|Limpiar perfil':'COMBO: O + P simultáneos\nElimina el perfil BT activo (solo en capa Fn)',
-  'BT|Borrar todo':'COMBO: O + P + ⌫ simultáneos\nElimina TODOS los perfiles BT guardados',
+  'NEXT|perfil':'Fn + J\nAvanza al siguiente perfil Bluetooth; recorre los cinco. Un perfil vacío permite emparejar.',
+  'PREV|perfil':'Fn + K\nRetrocede al perfil Bluetooth anterior.',
+  'CLR|activo':'Fn + L\nBorra el vínculo del perfil Bluetooth activo.',
+  'BT|Borrar todo':'COMBO: ⌘⇧5 + V + M simultáneos\nElimina TODOS los perfiles BT guardados',
   'BOOT|loader':'Modo bootloader\nPara actualizar el firmware ZMK via USB',
   'RST|sys reset':'Reiniciar el teclado (soft reset)',
   '⎙|Print Scr':'Print Screen (Windows / Linux)',

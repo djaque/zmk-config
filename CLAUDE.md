@@ -53,9 +53,11 @@ keymap-diagram.html      # Diagrama interactivo de capas (referencia visual)
 ### Thumb cluster (fila inferior, 6 teclas)
 
 ```
-[ LALT ] [ mo 1 ] [ td_spc_esc ]   [ lt 3 SPACE ] [ mo 2 ] [ LGUI ]
+[ LGUI ] [ mo 1 ] [ td_spc_esc ]   [ lt 3 SPACE ] [ mo 2 ] [ LALT ]
 ```
 
+- Pulgar externo izquierdo: `LGUI` (Command), tecla directa.
+- Pulgar externo derecho: `LALT` (Option), tecla directa.
 - `td_spc_esc`: tap = Space, doble tap = ESC, hold = capa Fn (layer 3)
 - `lt 3 SPACE`: tap = Space, hold = capa Fn (layer 3)
 - Ambos thumbs internos producen Space/Fn — diseño intencional
@@ -78,15 +80,18 @@ keymap-diagram.html      # Diagrama interactivo de capas (referencia visual)
 
 ---
 
-## Combos
+## Combos y controles Bluetooth
 
-| Combo | Teclas | Capa | Acción |
+| Control | Teclas | Capa | Acción |
 |---|---|---|---|
 | Soft-off | pos 1 + 15 + 29 | cualquiera | Apagado suave del teclado |
-| BT_CLR | pos 32 + 37 (V + M en Fn) | Fn (3) | Borrar perfil BT activo |
-| BT_CLR_ALL | pos 28 + 32 + 37 (Ctrl + V + M en Fn) | Fn (3) | Borrar todos los perfiles BT |
+| BT_NXT | J | Fn (3) | Avanzar al siguiente perfil BT (cicla los cinco) |
+| BT_PRV | K | Fn (3) | Retroceder al perfil BT anterior |
+| BT_CLR | L | Fn (3) | Borrar el vínculo del perfil BT activo |
+| BT_CLR_ALL | pos 28 + 32 + 37 (⌘⇧5 + V + M en Fn) | Fn (3) | Borrar todos los perfiles BT |
 
-> BT_CLR y BT_CLR_ALL están en la capa Fn con teclas `&trans` para evitar activaciones accidentales desde home row.
+> Mantén Fn y pulsa J para avanzar, K para retroceder o L para borrar el vínculo del perfil activo. BT0–BT3 en NUMBER también seleccionan directamente los índices 0–3; con Shift limpian el perfil correspondiente.
+> Para emparejar con un dispositivo nuevo, selecciona un perfil vacío: al seleccionarlo, el teclado se anuncia para emparejamiento. Si el perfil ya tiene otro vínculo, bórralo primero con Fn + L.
 
 ---
 
@@ -163,7 +168,7 @@ El objetivo es poder leer el diagrama sin necesidad de memorizar qué produce ca
 - **ñ/Ñ**: `&kp SEMI` en la última posición de la home row derecha — el layout Español Latinoamérica del SO produce ñ/Ñ directamente.
 - **Tildes**: las dead keys (á é í ó ú) son provistas por el layout del SO; no se implementan en ZMK.
 - **SQT (apóstrofo)**: última tecla de la home row derecha (columna 6) — envía `SQT`; el SO lo interpreta según el layout activo.
-- **BT_CLR en combos**: fue movido desde la home row porque se activaba accidentalmente. Ahora requiere capa Fn + dos teclas simultáneas.
+- **BT_CLR en Fn**: se movió desde la home row porque se activaba accidentalmente; ahora está en la tecla L con Fn. BT_CLR_ALL conserva un combo de tres teclas.
 - **`CONFIG_ZMK_OUTPUT_DEFAULT` eliminado**: no está definido en ZMK v0.3 y aborta el build si se incluye.
 - **`ZMK_EXT_POWER` deshabilitado → revertido**: intentar deshabilitar EXT_POWER rompe el linker en esta placa; se dejó el comportamiento por defecto.
 - **RGB_UNDERGLOW_ON_START=n**: el RGB empieza apagado para ahorrar batería; se activa manualmente desde la capa NUMBER.
